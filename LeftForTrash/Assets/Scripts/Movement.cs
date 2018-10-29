@@ -53,5 +53,10 @@ public class Movement : MonoBehaviour {
           rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
         
     }
+
+    public Vector3 GetPosition()
+    {
+        return gameObject.transform.position;
+    }
 }
 

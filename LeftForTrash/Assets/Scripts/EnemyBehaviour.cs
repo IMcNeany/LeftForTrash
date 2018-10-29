@@ -20,7 +20,7 @@ public class EnemyBehaviour : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         //need to add line of sight
-        if(other.GetComponent<TempPlayerMovement>())
+        if(other.GetComponent<Movement>())
         {
             playerList.Add(other.gameObject);
         }
@@ -32,17 +32,17 @@ public class EnemyBehaviour : MonoBehaviour {
         {
             float minDist = Mathf.Infinity;
             int playerNo;
-            TempPlayerMovement followPlayer = playerList[0].GetComponent<TempPlayerMovement>();
+            Movement followPlayer = playerList[0].GetComponent<Movement>();
             //for each player figure out the distance away
             for (int i = 0; i < playerList.Count; i++)
             {
-                TempPlayerMovement player = playerList[i].GetComponent<TempPlayerMovement>();
+                Movement player = playerList[i].GetComponent<Movement>();
                 float dist = Vector3.Distance(gameObject.transform.position, player.GetPosition());
                 if (dist < minDist)
                 {
                     minDist = dist;
                     playerNo = i;
-                    followPlayer = playerList[i].GetComponent<TempPlayerMovement>();
+                    followPlayer = playerList[i].GetComponent<Movement>();
                 }
             }
             //follow closest player
