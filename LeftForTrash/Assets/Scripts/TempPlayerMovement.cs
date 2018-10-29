@@ -18,4 +18,9 @@ public class TempPlayerMovement : MonoBehaviour
         movement = new Vector2(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed);
         rb2d.MovePosition(rb2d.position + movement * Time.fixedDeltaTime);
     }
+
+    public Vector3 GetPosition()
+    {
+        return gameObject.transform.position;
+    }
 }
