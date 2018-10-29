@@ -9,9 +9,9 @@ public class Movement : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2d;
     private Vector2 movement;
-
-    
-
+    public float delay = 0.0f;
+    private Animator animator;
+    public List<AnimationClip> animation_clips;
     public float speed = 5.0f;
 
     // Use this for initialization
@@ -19,32 +19,60 @@ public class Movement : MonoBehaviour {
         input = GetComponent<InputManager>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 	
 	// Update is called once per frame
 	void Update () {
         UpdateMovement();
-
-        if(input.getButtons()[0]){
-            spriteRenderer.color = Color.green;
-        } else if(input.getButtons()[1]){
-            spriteRenderer.color = Color.red;
-        } else if(input.getButtons()[2]){
-            spriteRenderer.color = Color.blue;
-        } else if(input.getButtons()[3]){
-            spriteRenderer.color = Color.yellow;
-        }
 	}
 
     void UpdateMovement()
     {
-        movement = new Vector2(input.getHorizontal() * speed, input.getVertical() * speed);
-      
+        
+        
 
-        if (movement != Vector2.zero) {
-            Vector3 eulerRotation = Quaternion.LookRotation(Vector3.forward, movement).eulerAngles;
-            eulerRotation.z = Mathf.Round(eulerRotation.z / 90) * 90;
-            transform.rotation = Quaternion.Euler(eulerRotation);
+        if(delay <= 0.0f)
+        {
+            movement = new Vector2(input.getHorizontal() * speed, input.getVertical() * speed);
+
+            if (input.getButtons(1))
+            {
+                animator.Play("Punch");
+                delay = animation_clips[0].length;
+            }
+            if (input.getButtons(0))
+            {
+                animator.Play("Throw");
+                delay = animation_clips[1].length;
+            }
+        }
+        else
+        {
+            movement = Vector2.zero;
+            delay -= 1 * Time.deltaTime;
+        }
+
+        if (movement != Vector2.zero)
+        {
+            if (movement.x > 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = 1;
+                transform.transform.localScale = scale;
+            }
+            else if (movement.x < 0)
+            {
+                Vector3 scale = transform.localScale;
+                scale.x = -1;
+                transform.transform.localScale = scale;
+            }
+
+            animator.SetBool("Moving", true);
+        }
+        else
+        {
+            animator.SetBool("Moving", false);
         }
     }
 
