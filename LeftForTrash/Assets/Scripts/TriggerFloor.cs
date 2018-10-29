@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class TriggerFloor : MonoBehaviour
 {
-    public GameObject floor00;
-    public GameObject floor01;
+    public GameObject floor;
 
-    public void OnTriggerEnter2D (Collider2D other)
+    public void OnTriggerExit2D (Collider2D other)
     {
         if (other.tag == "Player")
         {
-            if (floor00.activeInHierarchy)
+            if (floor.activeInHierarchy)
             {
-                floor00.SetActive(false);
-                floor01.SetActive(true);
+                floor.SetActive(false);
             }
-            else if (floor01.activeInHierarchy)
+            else
             {
-                floor01.SetActive(false);
-                floor00.SetActive(true);
+                floor.SetActive(true);
             }
         }
     }
