@@ -2,28 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBehaviour : MonoBehaviour {
+public class EnemyBehaviour : MonoBehaviour
+{
 
     float speed = 0.3f;
     public List<GameObject> playerList;
-    
+    public Transform prefab;
+
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         //need to add line of sight
-        if(other.GetComponent<Movement>())
+        if (other.GetComponent<Movement>())
         {
             playerList.Add(other.gameObject);
         }
+
+       
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -53,9 +59,9 @@ public class EnemyBehaviour : MonoBehaviour {
     void OnTriggerExit2D(Collider2D other)
     {
         //remove player
-        for(int i = 0; i < playerList.Count; i++)
+        for (int i = 0; i < playerList.Count; i++)
         {
-            if(playerList[i] == other.gameObject)
+            if (playerList[i] == other.gameObject)
             {
                 playerList.RemoveAt(i);
             }

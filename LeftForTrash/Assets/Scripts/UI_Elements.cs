@@ -13,10 +13,15 @@ public class UI_Elements : MonoBehaviour
     private bool canCount = true;
     private bool doOnce = false;
 
-    [Header("Timer Values")]
+    [Header("FPS Values")]
 
     public Text FPSText;
     private int frameRate;
+
+    [Header("Score Values")]
+
+    public Text ScoreText;
+    public int score;
 
     void Start()
     {
@@ -26,6 +31,7 @@ public class UI_Elements : MonoBehaviour
     void Update()
     {
         FPSCounter();
+        ScoreValue();
         GameTimer();
         FormatTimer();
     }
@@ -59,5 +65,10 @@ public class UI_Elements : MonoBehaviour
         current = Time.frameCount / Time.time;
         frameRate = (int)current;
         FPSText.text = frameRate.ToString() + " FPS";
+    }
+
+    private void ScoreValue()
+    {
+        ScoreText.text = "Score: " + score;
     }
 }

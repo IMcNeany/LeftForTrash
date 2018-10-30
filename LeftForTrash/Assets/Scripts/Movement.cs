@@ -15,12 +15,15 @@ public class Movement : MonoBehaviour {
     public float speed = 5.0f;
     public int sprite_direction = 1;
 
+
+
     // Use this for initialization
     void Start () {
         input = GetComponent<InputManager>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+      
     }
 	
 	// Update is called once per frame
@@ -87,5 +90,7 @@ public class Movement : MonoBehaviour {
     {
         return gameObject.transform.position;
     }
+
+   
 }
 
