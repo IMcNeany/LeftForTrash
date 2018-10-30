@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour {
     private Animator animator;
     public List<AnimationClip> animation_clips;
     public float speed = 5.0f;
+    public int sprite_direction = 1;
 
     // Use this for initialization
     void Start () {
@@ -38,12 +39,12 @@ public class Movement : MonoBehaviour {
 
             if (input.getButtons(1))
             {
-                animator.Play("Punch");
+                animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
             }
             if (input.getButtons(0))
             {
-                animator.Play("Throw");
+                animator.Play(animation_clips[1].name);
                 delay = animation_clips[1].length;
             }
         }
@@ -58,13 +59,13 @@ public class Movement : MonoBehaviour {
             if (movement.x > 0)
             {
                 Vector3 scale = transform.localScale;
-                scale.x = 1;
+                scale.x = sprite_direction;
                 transform.transform.localScale = scale;
             }
             else if (movement.x < 0)
             {
                 Vector3 scale = transform.localScale;
-                scale.x = -1;
+                scale.x = -sprite_direction;
                 transform.transform.localScale = scale;
             }
 
