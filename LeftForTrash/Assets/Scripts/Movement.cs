@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour {
     public List<AnimationClip> animation_clips;
     public float speed = 5.0f;
     public int sprite_direction = 1;
-
+    private PlayerCombat combat;
 
 
     // Use this for initialization
@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour {
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        combat = GetComponent<PlayerCombat>();
       
     }
 	
@@ -33,9 +34,6 @@ public class Movement : MonoBehaviour {
 
     void UpdateMovement()
     {
-        
-        
-
         if(delay <= 0.0f)
         {
             movement = new Vector2(input.getHorizontal() * speed, input.getVertical() * speed);
@@ -44,11 +42,13 @@ public class Movement : MonoBehaviour {
             {
                 animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
+                combat.Attack(delay);
             }
             if (input.getButtons(0))
             {
                 animator.Play(animation_clips[1].name);
                 delay = animation_clips[1].length;
+                combat.RangedAttack();
             }
         }
         else
