@@ -21,13 +21,14 @@ public class EnemyBehaviour : MonoBehaviour
         {
             for (int i = 0; i < playerList.Count; i++)
             {
-               float angle = Vector3.Angle(playerList[i].GetPosition,gameObject.transform.forward);
+               float angle = Vector3.Angle(playerList[i].GetComponent<Movement>().GetPosition(),gameObject.transform.forward);
                 if(angle < 20.0f)
                 {
 
                 }
             }
         }
+        return true;
     }
     // Update is called once per frame
     void Update()
