@@ -15,6 +15,20 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
+    bool PlayerWithInSight()
+    {
+        if (playerList.Count > 0)
+        {
+            for (int i = 0; i < playerList.Count; i++)
+            {
+               float angle = Vector3.Angle(playerList[i].GetPosition,gameObject.transform.forward);
+                if(angle < 20.0f)
+                {
+
+                }
+            }
+        }
+    }
     // Update is called once per frame
     void Update()
     {
