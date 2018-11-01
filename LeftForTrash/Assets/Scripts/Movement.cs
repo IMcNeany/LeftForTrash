@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour {
     public float speed = 5.0f;
     public int sprite_direction = 1;
     private PlayerCombat combat;
+    private SpecialAttack special;
 
 
     // Use this for initialization
@@ -24,6 +25,7 @@ public class Movement : MonoBehaviour {
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         combat = GetComponent<PlayerCombat>();
+        special = GetComponent<SpecialAttack>();
       
     }
 	
@@ -46,9 +48,12 @@ public class Movement : MonoBehaviour {
             }
             if (input.getButtons(0))
             {
-                animator.Play(animation_clips[1].name);
-                delay = animation_clips[1].length;
-                combat.RangedAttack();
+                if (special.current_delay <= 0.0f)
+                {
+                    animator.Play(animation_clips[1].name);
+                    delay = animation_clips[1].length;
+                    special.UseSpecialAttack();
+                }
             }
         }
         else

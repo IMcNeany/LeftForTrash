@@ -2168,6 +2168,26 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1623832801085528, guid: 391de978dc8917c4d9794b56a61a3c20,
     type: 2}
   m_PrefabInternal: {fileID: 1834832583}
+--- !u!114 &1546903071 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114845578282588364, guid: 391de978dc8917c4d9794b56a61a3c20,
+    type: 2}
+  m_PrefabInternal: {fileID: 1834832583}
+  m_Script: {fileID: 11500000, guid: 16f076ac0dfc69840b167be6ad9b8b18, type: 3}
+--- !u!114 &1546903073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1546903063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd06926e33a72b14d92d131bf28797c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  special_delay: 5
+  current_delay: 0
+  combat: {fileID: 1546903071}
 --- !u!1001 &1721092893
 Prefab:
   m_ObjectHideFlags: 0
