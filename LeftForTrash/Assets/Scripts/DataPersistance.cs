@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class DataPersistance : MonoBehaviour
 {
-    // custom pre-build entry point
-    //public enum data_type {_int, _float, _bool};
-    //public data_type type = data_type._int;
-    //public string value_as_str;
-
-    public int          integer = 0;
+    public int          player_count = 0;
     public float        floating_point = 0.0f;
     public bool         boolean = false;
     public char         character = ' ';
@@ -32,28 +27,9 @@ public class DataPersistance : MonoBehaviour
         }
     }
 
-    //Just testing a pre-build custom value to pass
-
-    //private void Start()
-    //{
-    //    if(type == data_type._int)
-    //    {
-    //        integer = int.Parse(value_as_str);
-    //    }
-    //    else if(type == data_type._float)
-    //    {
-    //        floating_point = float.Parse(value_as_str);
-    //    }
-    //    else if(type == data_type._bool)
-    //    {
-    //        boolean = bool.Parse(value_as_str);
-    //    }
-    //}
-
-
     public void SetInt(int val) //Setters
     {
-        integer = val;
+        player_count = val;
     }
 
     public void SetFloat(float val)
@@ -98,7 +74,7 @@ public class DataPersistance : MonoBehaviour
 
     public int GetInt() //Getters
     {
-        return integer;
+        return player_count;
     }
 
     public float GetFloat()
@@ -143,7 +119,7 @@ public class DataPersistance : MonoBehaviour
 
     public void FlushData() //Reset held data
     {
-        integer = 0;
+        player_count = 0;
         floating_point = 0.0f;
         boolean = false;
         character = ' ';

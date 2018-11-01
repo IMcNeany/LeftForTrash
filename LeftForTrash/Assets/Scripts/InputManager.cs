@@ -23,8 +23,11 @@ public class InputManager : MonoBehaviour {
 	public float getHorizontal(){ return Horizontal; }
 	public float getVertical(){ return Vertical; }
 
-	/*0 - A, 1 - B, 2 - X, 3 - Y */
-	public bool getButtons(int num){
+    public void setHorizontal(float x) { Horizontal = x; }
+    public void setVertical(float y) { Vertical = y; }
+
+    /*0 - A, 1 - B, 2 - X, 3 - Y */
+    public bool getButtons(int num){
 		return buttons[num];
 	}
 }
