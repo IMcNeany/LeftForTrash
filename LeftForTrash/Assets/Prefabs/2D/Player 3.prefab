@@ -41,13 +41,15 @@ GameObject:
   - component: {fileID: 114918505050824548}
   - component: {fileID: 114951956607632390}
   - component: {fileID: 95229668928961612}
+  - component: {fileID: 114783442861018820}
+  - component: {fileID: 114511818675309142}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4157163632640318
 Transform:
   m_ObjectHideFlags: 1
@@ -138,6 +140,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114511818675309142
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799848019447378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16f076ac0dfc69840b167be6ad9b8b18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  input: {fileID: 114918505050824548}
+  offset: {x: 0, y: 0.2}
+  Attack_Collider: {fileID: 0}
+  ranged: 1
+--- !u!114 &114783442861018820
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1799848019447378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c712c132c84ddb4e86470f49d3f6eaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  object_pool: []
+  pooled_object: {fileID: 1562618477518356, guid: 55c7d7e705e21ee4c963cba54db4190f,
+    type: 2}
 --- !u!114 &114918505050824548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028e97a4386e46343bd2c2b57b1c329e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 3
 --- !u!114 &114951956607632390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,7 +230,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1648454409
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2be8ec4fc1ada9f4a86e5e2bb145eea4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

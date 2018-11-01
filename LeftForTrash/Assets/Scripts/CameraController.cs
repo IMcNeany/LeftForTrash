@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour {
             for (int y = 0; y < target_list.Count; y++)
             {
                 Vector3 next_target_position = target_list[y].transform.position;
-                float current_distance = Vector3.Distance(target_position, next_target_position);
+                float current_distance = Vector3.Distance(target_position, next_target_position) * 1.5f;
                 if(current_distance > shrink_distance)
                 {
                     shrink_distance = current_distance;

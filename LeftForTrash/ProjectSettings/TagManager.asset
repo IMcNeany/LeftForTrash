@@ -46,6 +46,9 @@ TagManager:
   - name: Shadow
     uniqueID: 966802575
     locked: 0
+  - name: Projectile
+    uniqueID: 3707446167
+    locked: 0
   - name: Player
     uniqueID: 2646512887
     locked: 0
