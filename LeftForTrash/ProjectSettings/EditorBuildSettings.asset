@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/menu - Player join.unity
     guid: 1e0764c71149a974f9d854f0dd707cff
   - enabled: 1
+    path: Assets/Scenes/CutsceneTesting.unity
+    guid: 0a485cd9f1bebdb4b8755c31d4e281ef
+  - enabled: 1
     path: Assets/Scenes/Stage 01 - Building Complex.unity
     guid: afacec1f0c942e04983b29178a04ac40
   - enabled: 0
