@@ -10,6 +10,6 @@ public class Player1Special : SpecialAttack {
     public override void UseSpecialAttack()
     {
         combat.RangedAttack();
-        current_delay = special_delay;
+        current_cooldown = special_cooldown;
     }
 }

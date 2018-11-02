@@ -16,7 +16,8 @@ public class Movement : MonoBehaviour {
     public int sprite_direction = 1;
     private PlayerCombat combat;
     private SpecialAttack special;
-
+    private Player2Special P2S;
+    public bool move_during_special = false;
 
     // Use this for initialization
     void Start () {
@@ -26,7 +27,11 @@ public class Movement : MonoBehaviour {
         animator = GetComponent<Animator>();
         combat = GetComponent<PlayerCombat>();
         special = GetComponent<SpecialAttack>();
-      
+
+        if(special is Player2Special)
+        {
+            P2S = special as Player2Special;    
+        }
     }
 	
 	// Update is called once per frame
@@ -36,7 +41,12 @@ public class Movement : MonoBehaviour {
 
     void UpdateMovement()
     {
-        if(delay <= 0.0f)
+        if (P2S)
+        {
+            animator.SetFloat("Delay", P2S.current_spintime);
+        }
+        
+        if (delay <= 0.0f)
         {
             movement = new Vector2(input.getHorizontal() * speed, input.getVertical() * speed);
 
@@ -48,10 +58,18 @@ public class Movement : MonoBehaviour {
             }
             if (input.getButtons(0))
             {
-                if (special.current_delay <= 0.0f)
+                if (special.current_cooldown <= 0.0f)
                 {
                     animator.Play(animation_clips[1].name);
-                    delay = animation_clips[1].length;
+                    
+                    if(special.override_delay)
+                    {
+                        delay = P2S.spin_time;
+                    }
+                    else
+                    {
+                        delay = animation_clips[1].length;
+                    }
                     special.UseSpecialAttack();
                 }
             }
@@ -61,7 +79,13 @@ public class Movement : MonoBehaviour {
             movement = Vector2.zero;
             delay -= 1 * Time.deltaTime;
         }
-
+        if (P2S)
+        {
+            if (move_during_special && animator.GetFloat("Delay") > 0.0f)
+            {
+                movement = new Vector2(input.getHorizontal() * speed, input.getVertical() * speed);
+            }
+        }
         if (movement != Vector2.zero)
         {
             if (movement.x > 0)

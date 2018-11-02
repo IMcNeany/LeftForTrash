@@ -4,16 +4,14 @@ using UnityEngine;
 
 public class SpecialAttack : MonoBehaviour {
 
-    public float special_delay = 5.0f;
-    public float current_delay = 0.0f;
-    void Start () {
-		
-	}
+    public float special_cooldown = 5.0f;
+    public float current_cooldown = 0.0f;
+    public bool override_delay = false;
 	
-	void Update () {
-		if(current_delay > 0.0f)
+	public virtual void Update () {
+		if(current_cooldown > 0.0f)
         {
-            current_delay -= 1 * Time.deltaTime;
+            current_cooldown -= 1 * Time.deltaTime;
         }
 	}
 
