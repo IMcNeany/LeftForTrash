@@ -34,6 +34,7 @@ public class UI_Elements : MonoBehaviour
         ScoreValue();
         GameTimer();
         FormatTimer();
+        FloorText();
     }
 
     private void GameTimer() 
