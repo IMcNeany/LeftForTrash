@@ -8,7 +8,7 @@ public class Lobby : MonoBehaviour {
     public GameObject[] tickList;
     public bool[] playerBool;
     private DataPersistance data;
-    private int playerCount;
+    public  int playerCount;
     public Text startText;
     private SceneController scene;
     // Use this for initialization
@@ -16,6 +16,7 @@ public class Lobby : MonoBehaviour {
     {
         scene = GetComponent<SceneController>();
         startText.gameObject.SetActive(false);
+        data = gameObject.GetComponent<DataPersistance>();
         playerList = GameObject.FindGameObjectsWithTag("Player");
         tickList = GameObject.FindGameObjectsWithTag("LobbyTick");
         for (int i = 0; i < playerList.Length; i++)
@@ -75,6 +76,6 @@ public class Lobby : MonoBehaviour {
             }
         }
 
-        data.SetInt(playerCount);
+        data.SetPlayerCount(playerCount);
     }
 }

@@ -72,6 +72,11 @@ public class DataPersistance : MonoBehaviour
         material = val;
     }
 
+    public void SetPlayerCount(int val)
+    {
+        player_count = val;
+    }
+
     public int GetInt() //Getters
     {
         return player_count;
