@@ -34,7 +34,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1653805583751542
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,10 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd06926e33a72b14d92d131bf28797c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combat: {fileID: 114845578282588364}
   special_cooldown: 5
   current_cooldown: 0
   override_delay: 0
-  combat: {fileID: 114845578282588364}
 --- !u!114 &114374362839032736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -223,8 +223,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   object_pool: []
-  pooled_object: {fileID: 1562618477518356, guid: 55c7d7e705e21ee4c963cba54db4190f,
-    type: 2}
+  pooled_object_list:
+  - {fileID: 1562618477518356, guid: 55c7d7e705e21ee4c963cba54db4190f, type: 2}
 --- !u!114 &114503095029942768
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +249,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 0}
-  offset: {x: 0, y: 0.3}
+  player_sprite_offset: {x: 0, y: 0}
+  ranged_aim_pos: {x: 0, y: 0}
   Attack_Collider: {fileID: 1653805583751542}
   ranged: 0
 --- !u!114 &114958858847823106

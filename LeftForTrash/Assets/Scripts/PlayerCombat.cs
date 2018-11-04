@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour {
 
     public InputManager input;
-    public Vector2 offset;
-    private Vector2 attack_pos;
+    public Vector2 player_sprite_offset;
+    public Vector2 ranged_aim_pos;
+    private Vector2 aim_offset;
     public GameObject Attack_Collider;
     private float new_delay;
     private ObjectPooler OP;
@@ -20,25 +21,12 @@ public class PlayerCombat : MonoBehaviour {
 	void Update () {
 
         Vector2 direction = new Vector2(input.getHorizontal(), input.getVertical());
-        attack_pos = new Vector2(transform.position.x - offset.x, transform.position.y - offset.y);
-
-        //ranged attack direction
-        if (direction.x > 0)
+        
+        ranged_aim_pos = new Vector2((transform.position.x - player_sprite_offset.x) + aim_offset.x,
+                                     (transform.position.y - player_sprite_offset.y) + aim_offset.y);
+        if (direction != Vector2.zero)
         {
-            attack_pos.x += (direction.x / 3);
-        }
-        else if(direction.x < 0)
-        {
-            attack_pos.x += (direction.x / 3);
-        }
-
-        if (direction.y > 0)
-        {
-            attack_pos.y += (direction.y / 3);
-        }
-        else if (direction.y < 0)
-        {
-            attack_pos.y += (direction.y / 3);
+            aim_offset = direction;
         }
 
 
@@ -64,16 +52,16 @@ public class PlayerCombat : MonoBehaviour {
         }
         else
         {
-            RangedAttack();
+            RangedAttack(0);
         }
     }
 
-    public void RangedAttack()
+    public void RangedAttack(int proj_num)
     {
-        GameObject projectile = OP.GetPooledObject();
-        Vector2 player_offset = new Vector2(transform.position.x - offset.x, transform.position.y - offset.y);
+        GameObject projectile = OP.GetPooledObject(proj_num);
+        Vector2 player_offset = new Vector2(transform.position.x - player_sprite_offset.x, transform.position.y - player_sprite_offset.y);
         projectile.transform.position = player_offset;
-        Vector2 dir = new Vector2(attack_pos.x - player_offset.x, attack_pos.y - player_offset.y);
+        Vector2 dir = new Vector2(ranged_aim_pos.x - player_offset.x, ranged_aim_pos.y - player_offset.y);
         float angle = (Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg) - 90;
         projectile.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 

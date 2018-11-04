@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ProjectileScript : MonoBehaviour {
+    public GameObject hit_effect_prefab;
     public float speed = 5.0f;
     public float life_time = 3.0f;
     public float current_lifetime;
@@ -21,4 +22,16 @@ public class ProjectileScript : MonoBehaviour {
         }
         transform.Translate(Vector3.up * speed * Time.deltaTime);
 	}
+
+    private void OnTriggerEnter2D(Collider2D trigger)
+    {
+        if(trigger.tag != "Player")
+        {
+            if (hit_effect_prefab)
+            {
+                GameObject hit_effect = Instantiate(hit_effect_prefab, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+            }
+            gameObject.SetActive(false);
+        }
+    }
 }

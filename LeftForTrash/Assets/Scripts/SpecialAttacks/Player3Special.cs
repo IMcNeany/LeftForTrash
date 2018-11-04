@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player1Special : SpecialAttack {
+public class Player3Special : SpecialAttack
+{
 
 
-    //player 1 special is to throw an explosive projectile
     public override void UseSpecialAttack()
     {
-        combat.RangedAttack(0);
+        combat.RangedAttack(1);
         current_cooldown = special_cooldown;
     }
 }

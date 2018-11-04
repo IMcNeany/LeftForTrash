@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpecialAttack : MonoBehaviour {
 
+    public PlayerCombat combat;
     public float special_cooldown = 5.0f;
     public float current_cooldown = 0.0f;
     public bool override_delay = false;

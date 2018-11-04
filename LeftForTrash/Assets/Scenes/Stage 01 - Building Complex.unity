@@ -673,6 +673,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114673039200408892, guid: bb94768fa925e7c40a5d9671076a8a30,
+        type: 2}
+      propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb94768fa925e7c40a5d9671076a8a30, type: 2}
   m_IsPrefabAsset: 0
@@ -1416,7 +1421,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1217632758710108, guid: 080f27e4c905f2c4ea2a531a9ac89511, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114225328590708216, guid: 080f27e4c905f2c4ea2a531a9ac89511, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 080f27e4c905f2c4ea2a531a9ac89511, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &331195927 stripped
@@ -2606,8 +2616,6 @@ MonoBehaviour:
   FPSText: {fileID: 687346697}
   ScoreText: {fileID: 804181062}
   score: 0
-  floor_txt: {fileID: 1679283626}
-  floor_count: 1
 --- !u!224 &663229662
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5971,7 +5979,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1328765788}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -6558,6 +6566,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114783442861018820, guid: 0d62d8ea42343134ab809ff237375415,
+        type: 2}
+      propertyPath: object_list.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4157163632640318, guid: 0d62d8ea42343134ab809ff237375415, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0.17
@@ -6592,7 +6605,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1799848019447378, guid: 0d62d8ea42343134ab809ff237375415, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d62d8ea42343134ab809ff237375415, type: 2}
@@ -7023,6 +7036,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114374362839032736, guid: 391de978dc8917c4d9794b56a61a3c20,
+        type: 2}
+      propertyPath: object_list.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4800678815838994, guid: 391de978dc8917c4d9794b56a61a3c20, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7061,7 +7079,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1623832801085528, guid: 391de978dc8917c4d9794b56a61a3c20, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 391de978dc8917c4d9794b56a61a3c20, type: 2}
@@ -7322,7 +7340,7 @@ MonoBehaviour:
   lerp_movement: 1
   position_speed: 5
   size_speed: 2
-  max_size: 5
+  max_size: 10
   min_size: 3
 --- !u!1 &1925296928
 GameObject:
