@@ -9,6 +9,6 @@ public class Player1Special : SpecialAttack {
     public override void UseSpecialAttack()
     {
         combat.RangedAttack(0);
-        current_cooldown = special_cooldown;
+        base.UseSpecialAttack();
     }
 }

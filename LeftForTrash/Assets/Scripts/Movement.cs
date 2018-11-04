@@ -12,12 +12,15 @@ public class Movement : MonoBehaviour {
     public float delay = 0.0f;
     private Animator animator;
     public List<AnimationClip> animation_clips;
-    public float speed = 5.0f;
+    public float base_speed = 5.0f;
+    public float current_speed = 5.0f;
     public int sprite_direction = 1;
     private PlayerCombat combat;
     private SpecialAttack special;
     private Player2Special P2S;
     public bool move_during_special = false;
+    public float buff_time = 5.0f;
+    public float current_buff_time = 0.0f;
 
     // Use this for initialization
     void Start () {
@@ -48,7 +51,7 @@ public class Movement : MonoBehaviour {
         
         if (delay <= 0.0f)
         {
-            movement = new Vector2(input.getHorizontal() * speed, input.getVertical() * speed);
+            movement = new Vector2(input.getHorizontal() * current_speed, input.getVertical() * current_speed);
 
             if (input.getButtons(1))
             {
@@ -83,7 +86,7 @@ public class Movement : MonoBehaviour {
         {
             if (move_during_special && animator.GetFloat("Delay") > 0.0f)
             {
-                movement = new Vector2(input.getHorizontal() * speed, input.getVertical() * speed);
+                movement = new Vector2(input.getHorizontal() * current_speed, input.getVertical() * current_speed);
             }
         }
         if (movement != Vector2.zero)
@@ -107,6 +110,15 @@ public class Movement : MonoBehaviour {
         {
             animator.SetBool("Moving", false);
         }
+
+        if(current_buff_time < 0.0f)
+        {
+            current_speed = base_speed;
+        }
+        else
+        {
+            current_buff_time -= 1 * Time.deltaTime;
+        }
     }
 
     private void FixedUpdate()
@@ -118,6 +130,12 @@ public class Movement : MonoBehaviour {
     public Vector3 GetPosition()
     {
         return gameObject.transform.position;
+    }
+
+    public void BuffSpeed(float amount)
+    {
+        current_buff_time = buff_time;
+        current_speed = amount;
     }
 
    

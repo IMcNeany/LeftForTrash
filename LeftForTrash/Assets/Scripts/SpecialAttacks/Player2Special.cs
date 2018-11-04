@@ -29,6 +29,6 @@ public class Player2Special : SpecialAttack {
     {
         current_spintime = spin_time;
         spin_hitbox.SetActive(true);
-        current_cooldown = special_cooldown;
+        base.UseSpecialAttack();
     }
 }

@@ -18,6 +18,6 @@ public class SpecialAttack : MonoBehaviour {
 
     public virtual void UseSpecialAttack()
     {
-
+        current_cooldown = special_cooldown;
     }
 }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour {
 
+    public float max_health = 100;
+    public float health = 100;
     public InputManager input;
     public Vector2 player_sprite_offset;
     public Vector2 ranged_aim_pos;
@@ -42,6 +44,16 @@ public class PlayerCombat : MonoBehaviour {
                 Attack_Collider.SetActive(false);
             }
         }
+
+        if(health > max_health)
+        {
+            health = max_health;
+        }
+
+        if(health<= 0.0f)
+        {
+            //player is dead
+        }
 	}
 
     public void Attack(float delay)
@@ -74,5 +86,10 @@ public class PlayerCombat : MonoBehaviour {
         {
             //take damage from enemy
         }
+    }
+
+    public void AddHealth(float amount)
+    {
+        health += amount;
     }
 }
