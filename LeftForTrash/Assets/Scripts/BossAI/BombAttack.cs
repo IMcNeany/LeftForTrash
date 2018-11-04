@@ -9,16 +9,10 @@ public class BombAttack : MonoBehaviour {
 
 	private float time, lastTime;
 
+	private Sprite mark;
 	private SpriteRenderer renderer;
 	private Animator animator;
 
-	// Use this for initialization
-	void Start () {
-		lastTime = time = Time.time;
-		renderer = GetComponent<SpriteRenderer>();
-		animator = GetComponent<Animator>();
-	}
-	
 	// Update is called once per frame
 	void Update () {
 		float elapsedTime = Time.time - time;
@@ -30,11 +24,11 @@ public class BombAttack : MonoBehaviour {
 			}
 		} else if(elapsedTime >= delay + lastTime){
 			renderer.enabled = !renderer.enabled;
-			lastTime = Time.time;
+			lastTime = elapsedTime;
 		}
 
 		if(animator.GetCurrentAnimatorStateInfo(0).IsName("End")){
-			Destroy(this.gameObject);
+			this.gameObject.SetActive(false);
 		}
 	}
 
@@ -45,4 +39,20 @@ public class BombAttack : MonoBehaviour {
             Debug.Log("EXPLODE!");
         }
     }
+
+	public void setup () {
+		time = Time.time;
+		lastTime = 0;
+		renderer = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
+		mark = renderer.sprite;
+	}
+
+	public void reset(){
+		time = Time.time;
+		lastTime = 0;
+		animator.SetBool("exploded", false);
+		renderer.enabled = true;
+		renderer.sprite = mark;
+	}
 }

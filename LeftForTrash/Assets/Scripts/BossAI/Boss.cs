@@ -6,8 +6,9 @@ public class Boss : MonoBehaviour {
 
 	public enum State{
 		WAIT,
-		ATTACK_1
-		
+		ATTACK_1,
+		ATTACK_2,
+		PROCESS,
 	}
 
 

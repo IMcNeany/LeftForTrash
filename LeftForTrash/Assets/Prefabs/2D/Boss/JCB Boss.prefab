@@ -217,7 +217,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.00000047683716}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -228,7 +228,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 5}
+  m_Size: {x: 4, y: 3.9866953}
   m_EdgeRadius: 0
 --- !u!95 &95800908774025376
 Animator:
@@ -276,6 +276,10 @@ MonoBehaviour:
   waitTime: 3
   state: 0
   healthbar: {fileID: 0}
+  bombsStartPosition: {fileID: 0}
+  bombPrefab: {fileID: 1154314118557874, guid: 58b2195dba62c9c4fbc0d6876a3f6c43, type: 2}
+  width: 3
+  height: 3
 --- !u!212 &212701238372300340
 SpriteRenderer:
   m_ObjectHideFlags: 1
