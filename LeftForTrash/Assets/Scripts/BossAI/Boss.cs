@@ -10,12 +10,13 @@ public class Boss : MonoBehaviour {
 		
 	}
 
-	//public UI healthbar
 
 	public float health;
+	public float maxHealth;
 	public float damageScale;
 	public float waitTime;
 	public State state; //Public for debug
+	public GameObject healthbar;
 
 	protected float time;
 	protected Animator animator;
@@ -28,6 +29,13 @@ public class Boss : MonoBehaviour {
 	}
 
 	protected void update(){
+		float ratio = health/maxHealth;
+		healthbar.GetComponent<RectTransform>().localScale = new Vector3(ratio, 1, 1);
+	}
 
+	public void hit(/* player instance */){
+		float damage = 1.0f; //Player.getDamage()
+
+		health -= damage;
 	}
 }
