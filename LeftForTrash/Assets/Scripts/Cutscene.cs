@@ -10,6 +10,7 @@ public class Cutscene : MonoBehaviour
     public InputManager[] player_inputs;
     private int active_p;
     public GameObject text;
+    public GameObject sc;
 
     private void Start()
     {
@@ -58,5 +59,6 @@ public class Cutscene : MonoBehaviour
     {
         yield return new WaitForSeconds(2.5f);
         text.SetActive(false);
+        sc.GetComponent<SceneController>().NextScene();
     }
 }
