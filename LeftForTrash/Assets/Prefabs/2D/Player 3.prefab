@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4157163632640318
 Transform:
   m_ObjectHideFlags: 1
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028e97a4386e46343bd2c2b57b1c329e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 3
 --- !u!114 &114951956607632390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -219,8 +219,8 @@ MonoBehaviour:
   animation_clips:
   - {fileID: 7400000, guid: 992fcfac7e564104582d8c794956a3c9, type: 2}
   - {fileID: 7400000, guid: 992fcfac7e564104582d8c794956a3c9, type: 2}
-  base_speed: 5
-  current_speed: 5
+  base_speed: 2
+  current_speed: 2
   sprite_direction: -1
   move_during_special: 0
   buff_time: 5
