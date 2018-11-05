@@ -23,8 +23,16 @@ public class JCB : Boss {
 		base.update();
 
 		if((Time.time - time) >= waitTime && state == State.WAIT)
-		{
-			state = State.ATTACK_2;
+        {
+            switch (Random.Range(1, 3)) {
+                case 1:
+                    state = State.ATTACK_1;
+                    break;
+                case 2:
+                    state = State.ATTACK_2;
+                    break;
+            }
+			
 			time = Time.time;
 		}else if(animator.GetCurrentAnimatorStateInfo(0).IsName("JCB_idle")){
 			state = State.WAIT;
@@ -57,7 +65,7 @@ public class JCB : Boss {
 			break;
 			case State.ATTACK_2:
 			animator.SetBool("attack_2", true);
-			activateBombs();
+            Invoke("activateBombs", 0.5f);
 			break;
 			case State.WAIT:
 			//Do nothing
@@ -69,9 +77,6 @@ public class JCB : Boss {
 	}
 
 	private void activateBombs(){
-        //Choose area
-        //Active and reset
-
         for (int i = 0; i < totalBombs; i++) {
             GameObject bomb = bombs[Random.Range(0, bombs.Length)];
             bomb.SetActive(true);
