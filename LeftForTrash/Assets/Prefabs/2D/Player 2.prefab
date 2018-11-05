@@ -274,8 +274,8 @@ MonoBehaviour:
   animation_clips:
   - {fileID: 7400000, guid: 646b9b07bcc16e14b9ee248dfe8c5d0d, type: 2}
   - {fileID: 7400000, guid: b3dfba4d11cb4804e8191bdff2b083f5, type: 2}
-  base_speed: 5
-  current_speed: 5
+  base_speed: 2
+  current_speed: 2
   sprite_direction: -1
   move_during_special: 1
   buff_time: 5
