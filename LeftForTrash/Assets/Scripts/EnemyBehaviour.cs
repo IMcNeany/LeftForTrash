@@ -8,11 +8,13 @@ public class EnemyBehaviour : MonoBehaviour
     float speed = 0.3f;
     public List<GameObject> playerList;
     public Transform prefab;
+    private Animator animator;
+
 
     // Use this for initialization
     void Start()
     {
-
+        animator = GetComponent<Animator>();
     }
 
     bool PlayerWithInSight()
