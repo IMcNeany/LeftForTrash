@@ -25,7 +25,7 @@ public class CollectPickup : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            //Destroy(this.gameObject);
+            Destroy(this.gameObject);
             ui_elements.score += 100;
         }
     }

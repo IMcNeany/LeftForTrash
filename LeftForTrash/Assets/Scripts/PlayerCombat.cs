@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour {
 
+    [Header("Health")]
+    public Image healthbar;
     public float max_health = 100;
     public float health = 100;
+
+
     public InputManager input;
     public Vector2 player_sprite_offset;
     public Vector2 ranged_aim_pos;
@@ -18,6 +23,8 @@ public class PlayerCombat : MonoBehaviour {
 	void Start () {
         input = GetComponent<InputManager>();
         OP = GetComponent<ObjectPooler>();
+        healthbar = GetComponent<Image>();
+        health = max_health;
 	}
 	
 	void Update () {
@@ -54,6 +61,8 @@ public class PlayerCombat : MonoBehaviour {
         {
             //player is dead
         }
+
+        healthbar.fillAmount = health / max_health;
 	}
 
     public void Attack(float delay)
@@ -84,7 +93,7 @@ public class PlayerCombat : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            //take damage from enemy
+            health -= 20;
         }
     }
 

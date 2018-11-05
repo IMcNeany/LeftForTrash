@@ -6,7 +6,7 @@ public class Pickup : MonoBehaviour
 {
     //private UI_Elements ui_elements;
     public Transform prefab;
-
+    public int spawnTime = 1;
     void Awake()
     {
         //ui_elements = GameObject.FindObjectOfType<UI_Elements>();
@@ -29,10 +29,15 @@ public class Pickup : MonoBehaviour
         {
 
             Destroy(this.gameObject);
+            StartCoroutine(Spawn());
             Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+
 
         }
     }
-
+    IEnumerator Spawn()
+    {
+        yield return new WaitForSeconds(spawnTime);
+    }
 }
 
