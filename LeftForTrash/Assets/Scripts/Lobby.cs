@@ -11,7 +11,6 @@ public class Lobby : MonoBehaviour {
     public  int playerCount;
     public Text startText;
     private SceneController scene;
-    bool fix = false;
     // Use this for initialization
     void Start ()
     {
@@ -73,19 +72,12 @@ public class Lobby : MonoBehaviour {
 
         if (playerCount >= 1)
         {
-            if(!fix)
-            {
-               startText.gameObject.SetActive(true);
-            }
+            startText.gameObject.SetActive(true);
 
             if (Input.GetButton("A_1") || Input.GetButton("A_2") || 
                 Input.GetButton("A_3") || Input.GetButton("A_4"))
             {
-                if(!fix)
-                {
-                    startText.gameObject.SetActive(false);
-                    fix = true;
-                }
+                startText.gameObject.SetActive(false);
                 scene.NextScene();
             }
         }
