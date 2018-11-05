@@ -1247,6 +1247,10 @@ MonoBehaviour:
   vector_2: {x: 0, y: 0}
   game_object: {fileID: 0}
   material: {fileID: 0}
+  player1Active: 0
+  player2Active: 0
+  player3Active: 0
+  player4Active: 0
 --- !u!114 &1366339520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1259,15 +1263,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerList:
+  - {fileID: 1427844095}
+  - {fileID: 365708122}
+  - {fileID: 489640248}
   - {fileID: 1288462519}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   tickList:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1297211061}
+  - {fileID: 233254798}
+  - {fileID: 1985530345}
+  - {fileID: 1465095162}
   playerBool: 00000000
   playerCount: 0
   startText: {fileID: 1659170663}
