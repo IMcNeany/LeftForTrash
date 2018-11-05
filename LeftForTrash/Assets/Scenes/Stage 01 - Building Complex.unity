@@ -152,6 +152,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114283324601113018, guid: 78bdd9063ca7a694a99ef8c80516d4d5,
+        type: 2}
+      propertyPath: drop
+      value: 
+      objectReference: {fileID: 4936233712072052, guid: d714b4f02b9f5b74fb47808546c496d4,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78bdd9063ca7a694a99ef8c80516d4d5, type: 2}
   m_IsPrefabAsset: 0
@@ -266,11 +272,14 @@ MonoBehaviour:
   Player2Text: {fileID: 889615763}
   Player3Text: {fileID: 1311186506}
   Player4Text: {fileID: 63735428}
-  player1: {fileID: 0}
-  player2: {fileID: 0}
-  player3: {fileID: 0}
-  player4: {fileID: 0}
-  player1Active: 0
+  Player1HP: {fileID: 1611084508}
+  Player2HP: {fileID: 617942036}
+  Player3HP: {fileID: 618393661}
+  Player4HP: {fileID: 1207542863}
+  player1: {fileID: 1546903063}
+  player2: {fileID: 632259312}
+  player3: {fileID: 1463280874}
+  player4: {fileID: 1132691938}
 --- !u!4 &87291728
 Transform:
   m_ObjectHideFlags: 0
@@ -482,11 +491,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4213663453828368, guid: bb94768fa925e7c40a5d9671076a8a30, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1702842029955344, guid: bb94768fa925e7c40a5d9671076a8a30, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114482483061836198, guid: bb94768fa925e7c40a5d9671076a8a30,
         type: 2}
@@ -2663,7 +2672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &617942035
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2733,7 +2742,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &618393660
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2847,7 +2856,7 @@ RectTransform:
   - {fileID: 136955110}
   - {fileID: 551330434}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4705,7 +4714,7 @@ Transform:
   - {fileID: 1336847289}
   - {fileID: 1867619088}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1132691938 stripped
 GameObject:
@@ -4908,7 +4917,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1207542862
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6344,7 +6353,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1611084507
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7721,7 +7730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2087787797
 RectTransform:
   m_ObjectHideFlags: 0

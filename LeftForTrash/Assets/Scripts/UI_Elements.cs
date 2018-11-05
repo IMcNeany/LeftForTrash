@@ -25,62 +25,79 @@ public class UI_Elements : MonoBehaviour
     public Text Player3Text;
     public Text Player4Text;
 
+    public Image Player1HP;
+    public Image Player2HP;
+    public Image Player3HP;
+    public Image Player4HP;
+
     public GameObject player1;
     public GameObject player2;
     public GameObject player3;
     public GameObject player4;
+
     private PlayerCombat player1Combat;
     private PlayerCombat player2Combat;
     private PlayerCombat player3Combat;
     private PlayerCombat player4Combat;
-    private GameObject gm;
-    public bool player1Active = false;
-    private bool player2Active = false;
-    private bool player3Active = false;
-    private bool player4Active = false;
+
+    //private GameObject gm;
+
+    //public bool player1Active = false;
+    //private bool player2Active = false;
+    //private bool player3Active = false;
+    //private bool player4Active = false;
 
     //public int score;
 
     void Start()
     {
-        gm = GameObject.FindWithTag("GameController");
-        player1Active = gm.GetComponent<DataPersistance>().player1Active;
-        player2Active = gm.GetComponent<DataPersistance>().player2Active;
-        player3Active = gm.GetComponent<DataPersistance>().player3Active;
-        player4Active = gm.GetComponent<DataPersistance>().player4Active;
+        //gm = GameObject.FindWithTag("GameController");
+        //player1Active = gm.GetComponent<DataPersistance>().player1Active;
+        //player2Active = gm.GetComponent<DataPersistance>().player2Active;
+        //player3Active = gm.GetComponent<DataPersistance>().player3Active;
+        //player4Active = gm.GetComponent<DataPersistance>().player4Active;
 
         timer = seconds;
 
-        player1 = GameObject.Find("Player 1");
-        player2 = GameObject.Find("Player 2");
-        player3 = GameObject.Find("Player 3");
-        player4 = GameObject.Find("Player 4");
+        //player1 = GameObject.Find("Player 1");
+        //player2 = GameObject.Find("Player 2");
+        //player3 = GameObject.Find("Player 3");
+        //player4 = GameObject.Find("Player 4");
 
         player1Combat = player1.GetComponent<PlayerCombat>();
         player2Combat = player2.GetComponent<PlayerCombat>();
         player3Combat = player3.GetComponent<PlayerCombat>();
         player4Combat = player4.GetComponent<PlayerCombat>();
 
+        if (player1.activeInHierarchy)
+        {
+            Player1Text.gameObject.SetActive(true);
+            Player1HP.gameObject.SetActive(true);
+        }
+        if (player2.activeInHierarchy)
+        {
+            Player2Text.gameObject.SetActive(true);
+            Player2HP.gameObject.SetActive(true);
+        }
+        if (player3.activeInHierarchy)
+        {
+            Player3Text.gameObject.SetActive(true);
+            Player3HP.gameObject.SetActive(true);
+        }
+        if (player4.activeInHierarchy)
+        {
+            Player4Text.gameObject.SetActive(true);
+            Player4HP.gameObject.SetActive(true);
+        }
+
     }
 
     private void ScoreValue()
     {
-        if (player1Active == true)
-        {
-            Player1Text.text = "Score: " + player1Combat.score;
-        }
-        if (player2Active == true)
-        {
-            Player2Text.text = "Score: " + player2Combat.score;
-        }
-        if (player3Active == true)
-        {
-            Player3Text.text = "Score: " + player3Combat.score;
-        }
-        if (player4Active == true)
-        {
-            Player4Text.text = "Score: " + player4Combat.score;
-        }
+        Player1Text.text = "Score: " + player1Combat.score;
+        Player2Text.text = "Score: " + player2Combat.score;
+        Player3Text.text = "Score: " + player3Combat.score;
+        Player4Text.text = "Score: " + player4Combat.score;
     }
 
     void Update()

@@ -18,6 +18,8 @@ public class EnemyBehaviour : MonoBehaviour
     float new_delay;
     bool follow;
     public float distanceFromPlayer;
+
+    public Transform drop;
     // Use this for initialization
     void Start()
     {
@@ -42,13 +44,12 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(enemyHealth <= 0)
-        {
-            animator.Play(animation_clips[1].name);
+        {          
             //death
-
+            StartCoroutine(Death());
         }
-
         else if(follow)
         {
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
@@ -158,5 +159,14 @@ public class EnemyBehaviour : MonoBehaviour
     public void TakeDamage(float damage)
     {
         enemyHealth -= damage;
+    }
+
+    IEnumerator Death()
+    {
+        animator.Play(animation_clips[1].name);
+        follow = false;
+        yield return new WaitForSeconds(2.5f);
+        Instantiate(drop, gameObject.transform.position, gameObject.transform.rotation);
+        Destroy(this.gameObject);
     }
 }
