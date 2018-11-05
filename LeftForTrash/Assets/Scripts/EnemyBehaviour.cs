@@ -52,8 +52,9 @@ public class EnemyBehaviour : MonoBehaviour
         else if(follow)
         {
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
+
             //needs to be within range
-             distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
+            distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
             if (distanceFromPlayer <= 1.5)
             {
                 animator.Play(animation_clips[0].name);
@@ -110,6 +111,15 @@ public class EnemyBehaviour : MonoBehaviour
             }
             //follow closest player
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
+            if(followPlayer.GetPosition().x < gameObject.transform.position.x)
+            {
+               
+                gameObject.transform.localRotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+            }
+            else
+            {
+                gameObject.transform.localRotation = new Quaternion(0.0f, 180.0f, 0.0f, 1.0f);
+            }
             follow = true;
             
             animator.SetBool("Walking", true);
