@@ -7,8 +7,12 @@ public class EnemyBehaviour : MonoBehaviour
 
     float speed = 0.3f;
     public List<GameObject> playerList;
+
+    public int enemyHealth = 3;
     public Transform prefab;
     private Animator animator;
+    public List<AnimationClip> animation_clips;
+    public int sprite_direction = 1;
 
 
     // Use this for initialization
@@ -35,7 +39,12 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(enemyHealth <= 0)
+        {
+            animator.Play(animation_clips[1].name);
+            //death
 
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -70,6 +79,9 @@ public class EnemyBehaviour : MonoBehaviour
             }
             //follow closest player
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
+
+            //needs to be within range
+            animator.Play(animation_clips[0].name);
         }
     }
 
