@@ -16,7 +16,6 @@ public class Cutscene : MonoBehaviour
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController");
-        //scene.gameObject.GetComponent<SceneController>();
         player_count = gm.GetComponent<DataPersistance>().player_count;
         data = gm.GetComponent<DataPersistance>();
 
@@ -44,30 +43,16 @@ public class Cutscene : MonoBehaviour
             player_inputs[3] = players[3].GetComponent<InputManager>();
         }
 
-
-        //for (int i = 0; i < player_count; i++)
-        //{
-        //    if(!players[i].activeInHierarchy)
-        //    {
-        //        players[i].SetActive(true);
-        //    }
-        //    player_inputs[i] = players[i].GetComponent<InputManager>();
-        //}
-
         if (text.activeInHierarchy)
         {
             text.SetActive(false);
         }
+
         active_p = player_count;
     }
 
     private void Update()
     {
-        //for (int i = 0; i < player_count; i++)
-        //{
-        //    player_inputs[i].setHorizontal(1);
-        //}
-
         if (data.player1Active == true)
         {
             player_inputs[0].setHorizontal(1);
@@ -92,7 +77,6 @@ public class Cutscene : MonoBehaviour
             gameObject.GetComponent<FadeObject>().start = true;
             text.SetActive(true);
             StartCoroutine(delay());
-           // StartCoroutine(Load());
         }
     }
 
@@ -107,11 +91,5 @@ public class Cutscene : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         text.SetActive(false);
         sc.GetComponent<SceneController>().NextScene();
-    }
-
-    IEnumerator Load()
-    {
-        yield return new WaitForSeconds(4f);
-       // scene.NextScene();
     }
 }

@@ -23,11 +23,27 @@ public class CollectPickup : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        switch (collision.gameObject.name)
         {
-            Destroy(this.gameObject);
-            //ui_elements.score += 100;
+            case "Player 1":
+                collision.GetComponent<PlayerCombat>().score += 100;
+                break;
+            case "Player 2":
+                collision.GetComponent<PlayerCombat>().score += 100;
+                break;
+            case "Player 3":
+                collision.GetComponent<PlayerCombat>().score += 100;
+                break;
+            case "Player 4":
+                collision.GetComponent<PlayerCombat>().score += 100;
+                break;
         }
+
+            Destroy(this.gameObject);
+        //if (collision.gameObject.tag == "Player")
+        //{
+        //    ui_elements.score += 100;
+        //}
     }
 
     IEnumerator Despawn()
