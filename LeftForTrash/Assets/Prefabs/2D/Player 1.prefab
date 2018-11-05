@@ -34,7 +34,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1653805583751542
 GameObject:
   m_ObjectHideFlags: 0
@@ -50,7 +50,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1951345729917578
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
   object_list:
   - object_pool: []
   pooled_object_list:
-  - {fileID: 1562618477518356, guid: 55c7d7e705e21ee4c963cba54db4190f, type: 2}
+  - {fileID: 1471725745069294, guid: b78f549f121fc59448df271e79d09f29, type: 2}
 --- !u!114 &114503095029942768
 MonoBehaviour:
   m_ObjectHideFlags: 1

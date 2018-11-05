@@ -24,7 +24,7 @@ public class PlayerCombat : MonoBehaviour {
         input = GetComponent<InputManager>();
         OP = GetComponent<ObjectPooler>();
         healthbar = GetComponent<Image>();
-        health = max_health;
+        //health = max_health;
 	}
 	
 	void Update () {

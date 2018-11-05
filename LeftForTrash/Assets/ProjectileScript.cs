@@ -8,6 +8,7 @@ public class ProjectileScript : MonoBehaviour {
     public float life_time = 3.0f;
     public float current_lifetime;
     public float damage;
+    public bool heal = false;
 
     public void Reset()
     {
@@ -38,6 +39,15 @@ public class ProjectileScript : MonoBehaviour {
             }
             gameObject.SetActive(false);
 
+        }
+        else if(trigger.gameObject.name != "Player 1" && heal == true)
+        {
+            if (hit_effect_prefab)
+            {
+                GameObject hit_effect = Instantiate(hit_effect_prefab, transform.position, Quaternion.Euler(0, 0, 0)) as GameObject;
+            }
+            trigger.gameObject.GetComponent<PlayerCombat>().AddHealth(20);
+            gameObject.SetActive(false);
         }
 
         
