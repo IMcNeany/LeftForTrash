@@ -9,6 +9,7 @@ public class PlayerCombat : MonoBehaviour {
     public Image healthbar;
     public float max_health = 100;
     public float health = 100;
+    public int score = 0;
 
     public InputManager input;
     public Vector2 player_sprite_offset;
