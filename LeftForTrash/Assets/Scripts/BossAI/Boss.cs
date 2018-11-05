@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour {
 		ATTACK_1,
 		ATTACK_2,
 		PROCESS,
+        DIE,
 	}
 
 

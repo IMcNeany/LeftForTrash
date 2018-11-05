@@ -40,6 +40,11 @@ public class JCB : Boss {
 			animator.SetBool("attack_2", false);
 		}
 
+        if (health <= 0) {
+            health = 0;
+            state = State.DIE;
+        }
+
 		processState();
 	}
 
@@ -70,6 +75,11 @@ public class JCB : Boss {
 			case State.WAIT:
 			//Do nothing
 			break;
+            case State.DIE:
+                animator.SetBool("die", true);
+                GetComponent<SpriteRenderer>().color = Color.black;
+                Invoke("die", 5.0f);
+            break;
 		}
 
 		if(state != State.WAIT)
@@ -83,4 +93,8 @@ public class JCB : Boss {
             bomb.GetComponent<BombAttack>().reset();
         }
 	}
+
+    private void die() {
+        Debug.Log("boss died lul");           
+    }
 }
