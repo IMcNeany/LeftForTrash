@@ -5590,8 +5590,14 @@ Prefab:
     - target: {fileID: 114918505050824548, guid: 0d62d8ea42343134ab809ff237375415,
         type: 2}
       propertyPath: playerNumber
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114783442861018820, guid: 0d62d8ea42343134ab809ff237375415,
+        type: 2}
+      propertyPath: pooled_object_list.Array.data[0]
+      value: 
+      objectReference: {fileID: 1414864299201852, guid: 052cf76d136eb2541ac4b16495d4e780,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d62d8ea42343134ab809ff237375415, type: 2}
   m_IsPrefabAsset: 0
@@ -6660,10 +6666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target_list:
-  - {fileID: 1546903063}
-  - {fileID: 632259312}
   - {fileID: 1463280874}
-  - {fileID: 1132691938}
   origin: {x: 0, y: 0, z: -10}
   lerp_movement: 1
   position_speed: 5
