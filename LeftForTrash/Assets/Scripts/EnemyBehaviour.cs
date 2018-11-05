@@ -7,14 +7,17 @@ public class EnemyBehaviour : MonoBehaviour
 
     float speed = 0.3f;
     public List<GameObject> playerList;
-
+    public GameObject Attack_Collider;
     public float enemyHealth = 100;
     public Transform prefab;
     private Animator animator;
     public List<AnimationClip> animation_clips;
     public int sprite_direction = 1;
-
-
+    Movement followPlayer;
+    float delay;
+    float new_delay;
+    bool follow;
+    public float distanceFromPlayer;
     // Use this for initialization
     void Start()
     {
@@ -44,6 +47,34 @@ public class EnemyBehaviour : MonoBehaviour
             animator.Play(animation_clips[1].name);
             //death
 
+        }
+
+        else if(follow)
+        {
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
+            //needs to be within range
+             distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
+            if (distanceFromPlayer <= 1.5)
+            {
+                animator.Play(animation_clips[0].name);
+                delay = animation_clips[0].length;
+                Attack(delay);
+                if (new_delay > 0.0f)
+                {
+                    new_delay -= 1 * Time.deltaTime;
+                    Attack_Collider.SetActive(true);
+                }
+                else
+                {
+                    Attack_Collider.SetActive(false);
+                    animator.StopPlayback();// (animation_clips[0].name);
+                }
+            }
+            else
+            {
+                animator.StopPlayback();
+                animator.SetBool("Walking", true);
+            }
         }
     }
 
@@ -79,12 +110,29 @@ public class EnemyBehaviour : MonoBehaviour
             }
             //follow closest player
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
-
+            follow = true;
+            
+            animator.SetBool("Walking", true);
             //needs to be within range
-            animator.Play(animation_clips[0].name);
+             distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
+            if (distanceFromPlayer <= 1.5)
+            {
+                animator.Play(animation_clips[0].name);
+                delay = animation_clips[0].length;
+                Attack(delay);
+               
+            }
+            
         }
     }
 
+    void Attack(float delay)
+    {
+        animator.SetBool("Walking", false);
+        new_delay = delay;
+
+
+    }
     void OnTriggerExit2D(Collider2D other)
     {
         //remove player
