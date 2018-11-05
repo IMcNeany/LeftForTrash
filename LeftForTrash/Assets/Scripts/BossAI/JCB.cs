@@ -8,6 +8,7 @@ public class JCB : Boss {
 	public GameObject bombPrefab;
 	public int width;
 	public int height;
+    public int totalBombs = 5;
 
 	private GameObject[]  bombs;
 
@@ -68,12 +69,13 @@ public class JCB : Boss {
 	}
 
 	private void activateBombs(){
-		//Choose area
-		//Active and reset
+        //Choose area
+        //Active and reset
 
-		foreach(GameObject bomb in bombs){
-			bomb.SetActive(true);
-			bomb.GetComponent<BombAttack>().reset();
-		}
+        for (int i = 0; i < totalBombs; i++) {
+            GameObject bomb = bombs[Random.Range(0, bombs.Length)];
+            bomb.SetActive(true);
+            bomb.GetComponent<BombAttack>().reset();
+        }
 	}
 }
