@@ -37,6 +37,7 @@ public class Lobby : MonoBehaviour {
             playerBool[3] = true;
             tickList[1].SetActive(true);
             playerCount += 1;
+            data.setPlayer1Active(true);
         }
 
         if (Input.GetButtonDown("Start_2") && playerBool[0] == false)
@@ -46,6 +47,7 @@ public class Lobby : MonoBehaviour {
             playerBool[0] = true;
             tickList[0].SetActive(true);
             playerCount += 1;
+            data.setPlayer2Active(true);
         }
 
         if (Input.GetButtonDown("Start_3") && playerBool[1] == false)
@@ -55,6 +57,7 @@ public class Lobby : MonoBehaviour {
             playerBool[1] = true;
             tickList[2].SetActive(true);
             playerCount += 1;
+            data.setPlayer3Active(true);
         }
 
         if (Input.GetButtonDown("Start_4") && playerBool[2] == false)
@@ -64,6 +67,7 @@ public class Lobby : MonoBehaviour {
             playerBool[2] = true;
             tickList[3].SetActive(true);
             playerCount += 1;
+            data.setPlayer4Active(true);
         }
 
         if (playerCount >= 1)

@@ -14,6 +14,10 @@ public class DataPersistance : MonoBehaviour
     public GameObject   game_object = null;
     public Material     material = null;
 
+    public bool player1Active;
+    public bool player2Active;
+    public bool player3Active;
+    public bool player4Active;
     void Awake()
     {
         //make sure only 1 version of this object exsists
@@ -133,5 +137,25 @@ public class DataPersistance : MonoBehaviour
         vector_2 = new Vector2(0, 0);
         game_object = null;
         material = null;
+    }
+
+    public void setPlayer1Active(bool active)
+    {
+        player1Active = active;
+    }
+
+    public void setPlayer2Active(bool active)
+    {
+        player2Active = active;
+    }
+
+    public void setPlayer3Active(bool active)
+    {
+        player3Active = active;
+    }
+
+    public void setPlayer4Active(bool active)
+    {
+        player4Active = active;
     }
 }

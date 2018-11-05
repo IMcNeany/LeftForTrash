@@ -407,6 +407,7 @@ GameObject:
   - component: {fileID: 642234391}
   - component: {fileID: 642234393}
   - component: {fileID: 642234395}
+  - component: {fileID: 642234396}
   - component: {fileID: 642234394}
   m_Layer: 0
   m_Name: Cutscene
@@ -426,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd775ad827a17d849a026ab64e22310e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player_count: 0
+  player_count: 1
   players:
   - {fileID: 148308284}
   - {fileID: 1012767694}
@@ -537,6 +538,17 @@ MonoBehaviour:
   start: 1
   alpha: 0
   fadeIn: 0
+--- !u!114 &642234396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 642234390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec586bc89088e9b4e806e9ff39b7c6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &664029011
 Prefab:
   m_ObjectHideFlags: 0
