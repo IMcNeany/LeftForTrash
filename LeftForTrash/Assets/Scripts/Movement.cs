@@ -53,13 +53,13 @@ public class Movement : MonoBehaviour {
         {
             movement = new Vector2(input.getHorizontal() * current_speed, input.getVertical() * current_speed);
 
-            if (input.getButtons(1))
+            if (input.getTrigger() < -0.2f)
             {
                 animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 combat.Attack(delay);
             }
-            if (input.getButtons(0))
+            if (input.getTrigger() > 0.2f)
             {
                 if (special.current_cooldown <= 0.0f)
                 {

@@ -10,7 +10,6 @@ public class PlayerCombat : MonoBehaviour {
     public float max_health = 100;
     public float health = 100;
 
-
     public InputManager input;
     public Vector2 player_sprite_offset;
     public Vector2 ranged_aim_pos;
@@ -29,15 +28,13 @@ public class PlayerCombat : MonoBehaviour {
 	
 	void Update () {
 
-        Vector2 direction = new Vector2(input.getHorizontal(), input.getVertical());
+        Vector2 direction = new Vector2(input.getAimHorizontal(), -input.getAimVertical());
         
-        ranged_aim_pos = new Vector2((transform.position.x - player_sprite_offset.x) + aim_offset.x,
-                                     (transform.position.y - player_sprite_offset.y) + aim_offset.y);
+        ranged_aim_pos = new Vector2((transform.position.x + aim_offset.x),(transform.position.y + aim_offset.y));
         if (direction != Vector2.zero)
         {
             aim_offset = direction;
         }
-
 
         if (!ranged)
         {
