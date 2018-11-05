@@ -63,12 +63,30 @@ public class Cutscene : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < player_count; i++)
+        //for (int i = 0; i < player_count; i++)
+        //{
+        //    player_inputs[i].setHorizontal(1);
+        //}
+
+        if (data.player1Active == true)
         {
-            player_inputs[i].setHorizontal(1);
+            player_inputs[0].setHorizontal(1);
+        }
+        if (data.player2Active == true)
+        {
+            player_inputs[1].setHorizontal(1);
+        }
+        if (data.player3Active == true)
+        {
+            player_inputs[2].setHorizontal(1);
+        }
+        if (data.player4Active == true)
+        {
+            player_inputs[3].setHorizontal(1);
         }
 
-        if(active_p == 0)
+
+        if (active_p == 0)
         {
             gameObject.GetComponent<FadeObject>().fadeIn = true;
             gameObject.GetComponent<FadeObject>().start = true;

@@ -74,7 +74,8 @@ public class Lobby : MonoBehaviour {
         {
             startText.gameObject.SetActive(true);
 
-            if (Input.GetButton("A_1"))
+            if (Input.GetButton("A_1") || Input.GetButton("A_2") || 
+                Input.GetButton("A_3") || Input.GetButton("A_4"))
             {
                 scene.NextScene();
             }
