@@ -8,7 +8,7 @@ public class EnemyBehaviour : MonoBehaviour
     float speed = 0.3f;
     public List<GameObject> playerList;
 
-    public int enemyHealth = 3;
+    public float enemyHealth = 100;
     public Transform prefab;
     private Animator animator;
     public List<AnimationClip> animation_clips;
@@ -95,5 +95,10 @@ public class EnemyBehaviour : MonoBehaviour
                 playerList.RemoveAt(i);
             }
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        enemyHealth -= damage;
     }
 }

@@ -254,12 +254,22 @@ Prefab:
     - target: {fileID: 114757716487816964, guid: 0637b46e3e398f842b1d5ccd4bc40616,
         type: 2}
       propertyPath: totalBombs
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 212875950840054646, guid: 0637b46e3e398f842b1d5ccd4bc40616,
         type: 2}
       propertyPath: m_SortingOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114757716487816964, guid: 0637b46e3e398f842b1d5ccd4bc40616,
+        type: 2}
+      propertyPath: health
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114757716487816964, guid: 0637b46e3e398f842b1d5ccd4bc40616,
+        type: 2}
+      propertyPath: maxHealth
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0637b46e3e398f842b1d5ccd4bc40616, type: 2}
@@ -292,6 +302,12 @@ Transform:
   m_Father: {fileID: 1816086075}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &885134027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114757716487816964, guid: 0637b46e3e398f842b1d5ccd4bc40616,
+    type: 2}
+  m_PrefabInternal: {fileID: 769736313}
+  m_Script: {fileID: 11500000, guid: d437ca3ff402b0a449f631d2e26e5eb1, type: 3}
 --- !u!1001 &968852875
 Prefab:
   m_ObjectHideFlags: 0
@@ -408,6 +424,10 @@ Prefab:
     - target: {fileID: 114673039200408892, guid: bb94768fa925e7c40a5d9671076a8a30,
         type: 2}
       propertyPath: playerNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702842029955344, guid: bb94768fa925e7c40a5d9671076a8a30, type: 2}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -555,7 +575,7 @@ SpriteRenderer:
   m_Size: {x: 2.14, y: 2.26}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1816086075 stripped
@@ -734,3 +754,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2046666388 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1155461888853552, guid: 0637b46e3e398f842b1d5ccd4bc40616,
+    type: 2}
+  m_PrefabInternal: {fileID: 769736313}
+--- !u!114 &2046666392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2046666388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3aa9bf1790bfff4a9a49bc33eeed687, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EB: {fileID: 0}
+  boss: {fileID: 885134027}

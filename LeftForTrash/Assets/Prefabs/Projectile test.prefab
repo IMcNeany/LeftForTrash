@@ -21,9 +21,10 @@ GameObject:
   - component: {fileID: 4682151786130808}
   - component: {fileID: 212772394470005320}
   - component: {fileID: 114033077739540670}
+  - component: {fileID: 58120129889488718}
   m_Layer: 0
   m_Name: Projectile test
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,6 +42,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58120129889488718
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1562618477518356}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114033077739540670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,9 +68,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da0891759520b864fa8b919de764848b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hit_effect_prefab: {fileID: 0}
   speed: 5
   life_time: 3
   current_lifetime: 0
+  damage: 10
 --- !u!212 &212772394470005320
 SpriteRenderer:
   m_ObjectHideFlags: 1

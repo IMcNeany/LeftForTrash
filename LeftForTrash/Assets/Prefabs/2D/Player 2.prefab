@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114088312029006794}
   - component: {fileID: 95068425279533952}
   - component: {fileID: 114017227287533788}
-  - component: {fileID: 114225328590708216}
   - component: {fileID: 114186911271748576}
   m_Layer: 0
   m_Name: Player 2
@@ -62,7 +61,7 @@ GameObject:
   - component: {fileID: 61552635857225038}
   m_Layer: 0
   m_Name: Attack_Box
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -252,8 +251,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f076ac0dfc69840b167be6ad9b8b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  max_health: 100
+  health: 100
   input: {fileID: 114236255795193370}
-  offset: {x: 0, y: 0.4}
+  player_sprite_offset: {x: 0, y: 0}
+  ranged_aim_pos: {x: 0, y: 0}
   Attack_Collider: {fileID: 1430455168485010}
   ranged: 0
 --- !u!114 &114088312029006794
@@ -271,9 +274,12 @@ MonoBehaviour:
   animation_clips:
   - {fileID: 7400000, guid: 646b9b07bcc16e14b9ee248dfe8c5d0d, type: 2}
   - {fileID: 7400000, guid: b3dfba4d11cb4804e8191bdff2b083f5, type: 2}
-  speed: 2
+  base_speed: 5
+  current_speed: 5
   sprite_direction: -1
   move_during_special: 1
+  buff_time: 5
+  current_buff_time: 0
 --- !u!114 &114186911271748576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -285,26 +291,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30347762cca0dde41af9c740f0296607, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combat: {fileID: 0}
   special_cooldown: 10
   current_cooldown: 0
   override_delay: 1
   spin_time: 4
   current_spintime: 0
   spin_hitbox: {fileID: 1643153975594778}
---- !u!114 &114225328590708216
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1217632758710108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c712c132c84ddb4e86470f49d3f6eaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  object_pool: []
-  pooled_object: {fileID: 1562618477518356, guid: 55c7d7e705e21ee4c963cba54db4190f,
-    type: 2}
 --- !u!114 &114236255795193370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -316,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 028e97a4386e46343bd2c2b57b1c329e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerNumber: 1
+  playerNumber: 2
 --- !u!212 &212095172691950092
 SpriteRenderer:
   m_ObjectHideFlags: 1

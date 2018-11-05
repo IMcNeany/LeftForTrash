@@ -16,10 +16,10 @@ public class Hit : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
     {
-		if(col.gameObject.tag == "Player")
-        {
-            GetComponentInParent<Boss>().hit();
-        }
+		//if(col.gameObject.tag == "Player")
+  //      {
+  //          GetComponentInParent<Boss>().hit();
+  //      }
     }
 
 }

@@ -7,6 +7,9 @@ TagManager:
   - Pickup
   - Enemy
   - LobbyTick
+  - Melee
+  - Projectile
+  - Nocollide
   layers:
   - Default
   - TransparentFX

@@ -25,15 +25,15 @@ public class Pickup : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
-        {
+        //if (collision.gameObject.tag == "Player")
+        //{
 
-            Destroy(this.gameObject);
-            StartCoroutine(Spawn());
-            Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
+        //    Destroy(this.gameObject);
+        //    StartCoroutine(Spawn());
+        //    Instantiate(prefab, gameObject.transform.position, gameObject.transform.rotation);
 
 
-        }
+        //}
     }
     IEnumerator Spawn()
     {

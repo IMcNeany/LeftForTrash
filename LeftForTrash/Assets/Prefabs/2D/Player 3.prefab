@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f076ac0dfc69840b167be6ad9b8b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  max_health: 100
+  health: 100
   input: {fileID: 114918505050824548}
   player_sprite_offset: {x: 0, y: 0}
   ranged_aim_pos: {x: 0, y: 0}
@@ -183,7 +186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c712c132c84ddb4e86470f49d3f6eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  object_pool: []
+  object_list:
+  - object_pool: []
+  - object_pool: []
   pooled_object_list:
   - {fileID: 1562618477518356, guid: 55c7d7e705e21ee4c963cba54db4190f, type: 2}
   - {fileID: 1947136686300260, guid: 4d6515788662ae04fadaca60dcab7ef4, type: 2}
@@ -214,9 +219,12 @@ MonoBehaviour:
   animation_clips:
   - {fileID: 7400000, guid: 992fcfac7e564104582d8c794956a3c9, type: 2}
   - {fileID: 7400000, guid: 992fcfac7e564104582d8c794956a3c9, type: 2}
-  speed: 2
+  base_speed: 5
+  current_speed: 5
   sprite_direction: -1
   move_during_special: 0
+  buff_time: 5
+  current_buff_time: 0
 --- !u!212 &212422803818955932
 SpriteRenderer:
   m_ObjectHideFlags: 1

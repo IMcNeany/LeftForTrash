@@ -35,8 +35,8 @@ public class Boss : MonoBehaviour {
 		healthbar.GetComponent<RectTransform>().localScale = new Vector3(ratio, 1, 1);
 	}
 
-	public void hit(/* player instance */){
-		float damage = 1.0f; //Player.getDamage()
+	public void hit(float damage){
+	
 
 		health -= damage;
 	}

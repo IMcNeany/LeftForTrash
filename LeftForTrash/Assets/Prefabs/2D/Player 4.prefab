@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61810214259406648}
   m_Layer: 0
   m_Name: Attack_Box
-  m_TagString: Untagged
+  m_TagString: Melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4018307981306570
 Transform:
   m_ObjectHideFlags: 1
@@ -208,8 +208,12 @@ MonoBehaviour:
   delay: 0
   animation_clips:
   - {fileID: 7400000, guid: 32ffbbd932bce0046b4346c790d71979, type: 2}
-  speed: 2
+  base_speed: 5
+  current_speed: 5
   sprite_direction: -1
+  move_during_special: 0
+  buff_time: 5
+  current_buff_time: 0
 --- !u!114 &114482483061836198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -221,8 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16f076ac0dfc69840b167be6ad9b8b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 0}
+  max_health: 100
+  health: 100
   input: {fileID: 114673039200408892}
-  offset: {x: 0, y: 0.3}
+  player_sprite_offset: {x: 0, y: 0}
+  ranged_aim_pos: {x: 0, y: 0}
   Attack_Collider: {fileID: 1333874925587406}
   ranged: 0
 --- !u!114 &114673039200408892

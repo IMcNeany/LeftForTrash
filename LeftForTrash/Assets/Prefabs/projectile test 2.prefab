@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 50006498205036168}
   m_Layer: 0
   m_Name: projectile test 2
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,6 +94,7 @@ MonoBehaviour:
   speed: 5
   life_time: 3
   current_lifetime: 0
+  damage: 50
 --- !u!212 &212160116058226942
 SpriteRenderer:
   m_ObjectHideFlags: 1

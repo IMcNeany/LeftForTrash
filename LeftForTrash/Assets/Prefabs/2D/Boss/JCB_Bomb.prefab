@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delay: 0.2
-  warnTime: 3
+  warnTime: 1
   holdTime: 0.5
 --- !u!212 &212682547909872804
 SpriteRenderer:
