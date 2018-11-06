@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8e77379cc5315a47aa30363c2a4c1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  triggerable: 0
+  triggerable: 1
   type: 1
   pickupAudioObject: {fileID: 1811209163813532, guid: 882bd316a82dca642afc93b75db1cfae,
     type: 2}
@@ -114,8 +114,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1648454409
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 55c40eaa40889f74c891badce8fb43ea, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

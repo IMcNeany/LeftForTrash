@@ -9,7 +9,6 @@ public class EnemyBehaviour : MonoBehaviour
     public List<GameObject> playerList;
     public GameObject Attack_Collider;
     public float enemyHealth = 100;
-    public Transform prefab;
     private Animator animator;
     public List<AnimationClip> animation_clips;
     Movement followPlayer;
@@ -21,7 +20,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     [Header("Drop Values")]
 
-    int Spawn;
+    int spawn_rand = 0;
     public GameObject scoreDrop;
     public GameObject speedDrop;
     public GameObject healthDrop;
@@ -30,6 +29,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        firstPos = transform.position;
     }
 
     bool PlayerWithInSight()
@@ -165,6 +165,7 @@ public class EnemyBehaviour : MonoBehaviour
 
 
     }
+
     void OnTriggerExit2D(Collider2D other)
     {
         //remove player
@@ -192,29 +193,30 @@ public class EnemyBehaviour : MonoBehaviour
 
     IEnumerator Death()
     {
-        yield return new WaitForSeconds(2.5f);
-
+        follow = false;
         animator.SetBool("Punching", false);
         animator.SetBool("Fall", true);
-        //animator.Play(animation_clips[1].name);
-        follow = false;
-        Spawn = Random.Range(0, 2);
-        Debug.Log(Spawn);
 
-        switch (Spawn)
+        yield return new WaitForSeconds(2.5f);
+        Vector3 pos = transform.position;
+        spawn_rand = Random.Range(1,5);
+
+        switch (spawn_rand)
         {
-            case 0:
-                Instantiate(healthDrop.gameObject, gameObject.transform.position, gameObject.transform.rotation);
-                break;
             case 1:
-                Instantiate(speedDrop.gameObject, gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(healthDrop, pos, gameObject.transform.rotation);
+                Debug.Log("has spawned health");
                 break;
-           
-            default:
-                Instantiate(scoreDrop.gameObject, gameObject.transform.position, gameObject.transform.rotation);
+            case 2:
+                Instantiate(speedDrop, pos, gameObject.transform.rotation);
+                Debug.Log("has spawned speed");
                 break;
-
-
+            case 3:
+            case 4:
+            case 5:
+                Instantiate(scoreDrop, pos, gameObject.transform.rotation);
+                Debug.Log("has spawned score");
+                break;
         }
         Destroy(gameObject);
     }

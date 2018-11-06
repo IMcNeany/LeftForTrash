@@ -203,29 +203,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114283324601113018, guid: 78bdd9063ca7a694a99ef8c80516d4d5,
-        type: 2}
-      propertyPath: scoreDrop
-      value: 
-      objectReference: {fileID: 4936233712072052, guid: d714b4f02b9f5b74fb47808546c496d4,
-        type: 2}
-    - target: {fileID: 114283324601113018, guid: 78bdd9063ca7a694a99ef8c80516d4d5,
-        type: 2}
-      propertyPath: dunnoDrop
-      value: 
-      objectReference: {fileID: 4440446103832898, guid: 88732f1969fef1c499d46af5ea52bb3f,
-        type: 2}
-    - target: {fileID: 114283324601113018, guid: 78bdd9063ca7a694a99ef8c80516d4d5,
-        type: 2}
-      propertyPath: speedDrop
-      value: 
-      objectReference: {fileID: 4874523642818652, guid: 5906bc60a7757ea47a4d58e4e3615c2d,
-        type: 2}
-    - target: {fileID: 50968368271499040, guid: 78bdd9063ca7a694a99ef8c80516d4d5,
-        type: 2}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78bdd9063ca7a694a99ef8c80516d4d5, type: 2}
   m_IsPrefabAsset: 0
@@ -4576,7 +4553,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1648454409
   m_SortingOrder: 20
   m_TargetDisplay: 0
 --- !u!4 &654949256 stripped
@@ -5209,6 +5186,71 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78bdd9063ca7a694a99ef8c80516d4d5, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &808866439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 808866441}
+  - component: {fileID: 808866440}
+  - component: {fileID: 808866442}
+  m_Layer: 0
+  m_Name: GM
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &808866440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808866439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9195730b24e3c4db3428516b973723, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player_count: 1
+  floating_point: 0
+  boolean: 0
+  character: 32
+  literal_string: 
+  vector_3: {x: 0, y: 0, z: 0}
+  vector_2: {x: 0, y: 0}
+  game_object: {fileID: 0}
+  material: {fileID: 0}
+  player1Active: 1
+  player2Active: 0
+  player3Active: 0
+  player4Active: 0
+--- !u!4 &808866441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808866439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.1011524, y: 7.621093, z: 0.021995837}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &808866442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 808866439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec586bc89088e9b4e806e9ff39b7c6ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &808906914
 Prefab:
   m_ObjectHideFlags: 0
@@ -10701,6 +10743,25 @@ Prefab:
       propertyPath: healthbar
       value: 
       objectReference: {fileID: 503027279}
+    - target: {fileID: 1623832801085528, guid: 391de978dc8917c4d9794b56a61a3c20, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61078519259896388, guid: 391de978dc8917c4d9794b56a61a3c20,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: -0.020523444
+      objectReference: {fileID: 0}
+    - target: {fileID: 61078519259896388, guid: 391de978dc8917c4d9794b56a61a3c20,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.050000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 61078519259896388, guid: 391de978dc8917c4d9794b56a61a3c20,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.887328
+      objectReference: {fileID: 0}
     - target: {fileID: 114845578282588364, guid: 391de978dc8917c4d9794b56a61a3c20,
         type: 2}
       propertyPath: deathAudio

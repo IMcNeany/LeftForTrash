@@ -63,7 +63,7 @@ public class PlayerCombat : MonoBehaviour {
             Destroy(this.gameObject);
         }
 
-        healthbar.fillAmount = health / max_health;
+        //healthbar.fillAmount = health / max_health;
 	}
 
     public void Attack(float delay)
