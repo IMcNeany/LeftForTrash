@@ -13,6 +13,7 @@ public class ItemPickup : MonoBehaviour {
 
     public bool triggerable;
     public ItemType type;
+    public GameObject pickupAudioObject;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +32,7 @@ public class ItemPickup : MonoBehaviour {
             if(collision.tag == "Player")
             {
                 UseItem(collision.gameObject);
+                GameObject audio_pickup = Instantiate(pickupAudioObject) as GameObject;
                 Destroy(gameObject);
             }
         }

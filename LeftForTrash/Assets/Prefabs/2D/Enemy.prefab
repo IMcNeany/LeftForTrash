@@ -228,7 +228,6 @@ MonoBehaviour:
   - {fileID: 7400000, guid: f981bdc83f7857e468c0d0411010787d, type: 2}
   - {fileID: 7400000, guid: 6835811dadf8f164c8488d2f123eaf8d, type: 2}
   distanceFromPlayer: 0
-  drop: {fileID: 4936233712072052, guid: d714b4f02b9f5b74fb47808546c496d4, type: 2}
 --- !u!114 &114314025066119342
 MonoBehaviour:
   m_ObjectHideFlags: 1

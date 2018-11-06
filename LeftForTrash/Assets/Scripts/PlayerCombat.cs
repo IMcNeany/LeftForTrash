@@ -20,6 +20,8 @@ public class PlayerCombat : MonoBehaviour {
     private ObjectPooler OP;
     public bool ranged;
 
+    public GameObject deathAudio;
+
 	void Start () {
         input = GetComponent<InputManager>();
         OP = GetComponent<ObjectPooler>();
@@ -57,6 +59,7 @@ public class PlayerCombat : MonoBehaviour {
 
         if(health<= 0.0f)
         {
+            GameObject death = Instantiate(deathAudio) as GameObject;
             Destroy(this.gameObject);
         }
 
@@ -92,7 +95,7 @@ public class PlayerCombat : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            health -= 20;
+           // health -= 20;
         }
     }
 

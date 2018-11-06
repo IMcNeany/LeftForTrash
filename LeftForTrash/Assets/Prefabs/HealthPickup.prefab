@@ -80,6 +80,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerable: 0
   type: 0
+  pickupAudioObject: {fileID: 1811209163813532, guid: 882bd316a82dca642afc93b75db1cfae,
+    type: 2}
 --- !u!212 &212360004495022774
 SpriteRenderer:
   m_ObjectHideFlags: 1
