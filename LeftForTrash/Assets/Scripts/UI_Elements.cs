@@ -19,12 +19,7 @@ public class UI_Elements : MonoBehaviour
     public Text FPSText;
     private int frameRate;
 
-    [Header("Score Values")]
-    public Text Player1Text;
-    public Text Player2Text;
-    public Text Player3Text;
-    public Text Player4Text;
-
+    [Header("Health Values")]
     public Image Player1HP;
     public Image Player2HP;
     public Image Player3HP;
@@ -39,6 +34,24 @@ public class UI_Elements : MonoBehaviour
     private PlayerCombat player2Combat;
     private PlayerCombat player3Combat;
     private PlayerCombat player4Combat;
+
+    private Player1Special player1Cooldown;
+    private Player2Special player2Cooldown;
+    private Player3Special player3Cooldown;
+    private Player4Special player4Cooldown;
+
+    [Header("Score Values")]
+    public Text Player1Text;
+    public Text Player2Text;
+    public Text Player3Text;
+    public Text Player4Text;
+
+    [Header("Cooldown Values")]
+    public Text Player1CD;
+    public Text Player2CD;
+    public Text Player3CD;
+    public Text Player4CD;
+
 
     //private GameObject gm;
 
@@ -69,27 +82,36 @@ public class UI_Elements : MonoBehaviour
         player3Combat = player3.GetComponent<PlayerCombat>();
         player4Combat = player4.GetComponent<PlayerCombat>();
 
+        player1Cooldown = player1.GetComponent<Player1Special>();
+        player2Cooldown = player2.GetComponent<Player2Special>();
+        player3Cooldown = player3.GetComponent<Player3Special>();
+        player4Cooldown = player4.GetComponent<Player4Special>();
+
         if (player1.activeInHierarchy)
         {
             Player1Text.gameObject.SetActive(true);
             Player1HP.gameObject.SetActive(true);
+            Player1CD.gameObject.SetActive(true);
         }
         if (player2.activeInHierarchy)
         {
             Player2Text.gameObject.SetActive(true);
             Player2HP.gameObject.SetActive(true);
+            Player2CD.gameObject.SetActive(true);
         }
         if (player3.activeInHierarchy)
         {
             Player3Text.gameObject.SetActive(true);
             Player3HP.gameObject.SetActive(true);
+            Player3CD.gameObject.SetActive(true);
         }
         if (player4.activeInHierarchy)
         {
             Player4Text.gameObject.SetActive(true);
             Player4HP.gameObject.SetActive(true);
+            Player4CD.gameObject.SetActive(true);
         }
-
+     
     }
 
     private void ScoreValue()
@@ -98,6 +120,11 @@ public class UI_Elements : MonoBehaviour
         Player2Text.text = "Score: " + player2Combat.score;
         Player3Text.text = "Score: " + player3Combat.score;
         Player4Text.text = "Score: " + player4Combat.score;
+
+        Player1CD.text = "Cooldown: " + Mathf.Round(player1Cooldown.current_cooldown);
+        Player2CD.text = "Cooldown: " + Mathf.Round(player2Cooldown.current_cooldown);
+        Player3CD.text = "Cooldown: " + Mathf.Round(player3Cooldown.current_cooldown);
+        Player4CD.text = "Cooldown: " + Mathf.Round(player4Cooldown.current_cooldown);
     }
 
     void Update()
