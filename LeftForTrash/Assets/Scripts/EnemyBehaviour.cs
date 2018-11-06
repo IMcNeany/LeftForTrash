@@ -49,10 +49,11 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+     
         if (enemyHealth <= 0)
         {
             //death
+            enemyHealth = 0;
             StartCoroutine(Death());
         }
         else if (follow)
