@@ -13,8 +13,8 @@ public class EnemyBehaviour : MonoBehaviour
     private Animator animator;
     public List<AnimationClip> animation_clips;
     Movement followPlayer;
-    float delay;
-    float new_delay;
+    public float delay;
+    public float new_delay;
     bool follow;
     public float distanceFromPlayer;
     Vector3 firstPos;
@@ -30,6 +30,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        firstPos = gameObject.transform.position;
     }
 
     bool PlayerWithInSight()
@@ -177,12 +178,12 @@ public class EnemyBehaviour : MonoBehaviour
         }
         if (playerList.Count == 0)
         {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, firstPos, 6);
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, firstPos, speed * Time.deltaTime);
             follow = false;
 
         }
         animator.SetBool("Idle", true);
-        animator.SetBool("walking", false);
+        animator.SetBool("Walking", false);
     }
 
     public void TakeDamage(float damage)
