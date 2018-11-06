@@ -152,14 +152,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114283324601113018, guid: 78bdd9063ca7a694a99ef8c80516d4d5,
-        type: 2}
-      propertyPath: drop
-      value: 
-      objectReference: {fileID: 4936233712072052, guid: d714b4f02b9f5b74fb47808546c496d4,
-        type: 2}
-    m_RemovedComponents:
-    - {fileID: 114251465492030486, guid: 78bdd9063ca7a694a99ef8c80516d4d5, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78bdd9063ca7a694a99ef8c80516d4d5, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &45317989
@@ -7850,7 +7843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target_list:
-  - {fileID: 1463280874}
+  - {fileID: 1546903063}
   origin: {x: 0, y: 0, z: -10}
   lerp_movement: 1
   position_speed: 5

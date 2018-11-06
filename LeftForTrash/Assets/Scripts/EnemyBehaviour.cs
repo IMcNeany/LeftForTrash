@@ -12,7 +12,6 @@ public class EnemyBehaviour : MonoBehaviour
     public Transform prefab;
     private Animator animator;
     public List<AnimationClip> animation_clips;
-    public int sprite_direction = 1;
     Movement followPlayer;
     float delay;
     float new_delay;

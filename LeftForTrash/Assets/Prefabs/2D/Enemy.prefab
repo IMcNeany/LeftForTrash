@@ -23,7 +23,6 @@ GameObject:
   - component: {fileID: 212100681380732570}
   - component: {fileID: 50968368271499040}
   - component: {fileID: 58905057856526148}
-  - component: {fileID: 114251465492030486}
   - component: {fileID: 95098531186054334}
   m_Layer: 0
   m_Name: Enemy
@@ -210,19 +209,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114251465492030486
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1173013610455986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08b40ee38fa4c5344aa2bdbf5438b63c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 4936233712072052, guid: d714b4f02b9f5b74fb47808546c496d4, type: 2}
-  spawnTime: 1
 --- !u!114 &114283324601113018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -241,8 +227,8 @@ MonoBehaviour:
   animation_clips:
   - {fileID: 7400000, guid: f981bdc83f7857e468c0d0411010787d, type: 2}
   - {fileID: 7400000, guid: 6835811dadf8f164c8488d2f123eaf8d, type: 2}
-  sprite_direction: 1
   distanceFromPlayer: 0
+  drop: {fileID: 4936233712072052, guid: d714b4f02b9f5b74fb47808546c496d4, type: 2}
 --- !u!114 &114314025066119342
 MonoBehaviour:
   m_ObjectHideFlags: 1
