@@ -40,7 +40,7 @@ public class JCB : Boss {
 			animator.SetBool("attack_2", false);
 		}
 
-        if (health <= 0) {
+        if (health <= 0 && state != State.PROCESS) {
             health = 0;
             state = State.DIE;
         }
@@ -95,6 +95,7 @@ public class JCB : Boss {
 	}
 
     private void die() {
-        Debug.Log("boss died lul");           
+        Debug.Log("Rip Boss");
+        Destroy(this.gameObject);
     }
 }

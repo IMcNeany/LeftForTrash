@@ -20,6 +20,7 @@ public class BombAttack : MonoBehaviour {
 		if(elapsedTime >= warnTime){
 			renderer.enabled = true;
 			if(elapsedTime >= warnTime + holdTime){
+                renderer.sortingLayerName = "Pickup";
 				animator.SetBool("exploded", true);
 			}
 		} else if(elapsedTime >= delay + lastTime){
