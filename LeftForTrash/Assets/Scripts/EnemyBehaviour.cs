@@ -57,7 +57,9 @@ public class EnemyBehaviour : MonoBehaviour
             distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
             if (distanceFromPlayer <= 1.5)
             {
-                animator.Play(animation_clips[0].name);
+                animator.SetBool("Walking", false);
+                animator.SetBool("Punching", true);
+                //animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 Attack(delay);
                 if (new_delay > 0.0f)
@@ -68,12 +70,14 @@ public class EnemyBehaviour : MonoBehaviour
                 else
                 {
                     Attack_Collider.SetActive(false);
-                    animator.StopPlayback();// (animation_clips[0].name);
+                  
                 }
             }
             else
             {
-                animator.StopPlayback();
+                // animator.StopPlayback();
+                //animator.Play(animation_clips[2].name);
+                animator.SetBool("Punching", false);
                 animator.SetBool("Walking", true);
             }
         }
@@ -123,11 +127,15 @@ public class EnemyBehaviour : MonoBehaviour
             follow = true;
             
             animator.SetBool("Walking", true);
+            //animator.Play(animation_clips[2].name);
             //needs to be within range
-             distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
+            distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
             if (distanceFromPlayer <= 1.5)
             {
-                animator.Play(animation_clips[0].name);
+                //animator.StopPlayback();
+                animator.SetBool("Punching", false);
+                animator.SetBool("Walking", true);
+                // animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 Attack(delay);
                
@@ -153,6 +161,8 @@ public class EnemyBehaviour : MonoBehaviour
                 playerList.RemoveAt(i);
             }
         }
+        animator.SetBool("Idle", true);
+        animator.SetBool("walking", false);
     }
 
     public void TakeDamage(float damage)
@@ -162,7 +172,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     IEnumerator Death()
     {
-        animator.Play(animation_clips[1].name);
+        animator.SetBool("Punching", false);
+        animator.SetBool("Fall", true);
+        //animator.Play(animation_clips[1].name);
         follow = false;
         yield return new WaitForSeconds(2.5f);
         Instantiate(drop, gameObject.transform.position, gameObject.transform.rotation);
