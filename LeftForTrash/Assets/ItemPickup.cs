@@ -7,7 +7,8 @@ public class ItemPickup : MonoBehaviour {
     public enum ItemType
     {
         Health,
-        Speed
+        Speed,
+        Score
     };
 
     public bool triggerable;
@@ -44,6 +45,9 @@ public class ItemPickup : MonoBehaviour {
                 break;
             case ItemType.Speed:
                 player.GetComponent<Movement>().BuffSpeed(3);
+                break;
+            case ItemType.Score:
+                player.GetComponent<PlayerCombat>().score += 100;
                 break;
         }
 
