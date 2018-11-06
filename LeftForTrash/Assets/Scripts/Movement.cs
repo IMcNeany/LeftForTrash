@@ -21,6 +21,8 @@ public class Movement : MonoBehaviour {
     public bool move_during_special = false;
     public float buff_time = 5.0f;
     public float current_buff_time = 0.0f;
+    public AudioSource audio_source;
+    public List<AudioClip> audio_clips;
 
     // Use this for initialization
     void Start () {
@@ -30,6 +32,7 @@ public class Movement : MonoBehaviour {
         animator = GetComponent<Animator>();
         combat = GetComponent<PlayerCombat>();
         special = GetComponent<SpecialAttack>();
+        audio_source = GetComponent<AudioSource>();
 
         if(special is Player2Special)
         {
@@ -58,6 +61,8 @@ public class Movement : MonoBehaviour {
                 animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 combat.Attack(delay);
+                audio_source.clip = audio_clips[0];
+                audio_source.Play();
             }
             if (input.getTrigger() > 0.2f)
             {
@@ -68,12 +73,15 @@ public class Movement : MonoBehaviour {
                     if(special.override_delay)
                     {
                         delay = P2S.spin_time;
+                        audio_source.loop = true;
                     }
                     else
                     {
                         delay = animation_clips[1].length;
                     }
                     special.UseSpecialAttack();
+                    audio_source.clip = audio_clips[1];
+                    audio_source.Play();
                 }
             }
         }

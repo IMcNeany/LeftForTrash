@@ -68,6 +68,7 @@ public class PlayerCombat : MonoBehaviour {
         if(!ranged)
         {
             new_delay = delay;
+
         }
         else
         {

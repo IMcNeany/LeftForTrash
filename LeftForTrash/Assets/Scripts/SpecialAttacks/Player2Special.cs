@@ -23,6 +23,7 @@ public class Player2Special : SpecialAttack {
         else
         {
             spin_hitbox.SetActive(false);
+            GetComponent<AudioSource>().loop = false;
         }
 	}
     public override void UseSpecialAttack()
