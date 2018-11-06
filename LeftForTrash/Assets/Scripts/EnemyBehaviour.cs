@@ -68,13 +68,14 @@ public class EnemyBehaviour : MonoBehaviour
             if (distanceFromPlayer <= 1.5)
             {
                 animator.SetBool("Walking", false);
-                animator.SetBool("Punching", true);
+                
                 //animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 Attack(delay);
                 if (new_delay > 0.0f)
                 {
                     new_delay -= 1 * Time.deltaTime;
+                    
                     Attack_Collider.SetActive(true);
                 }
                 else
@@ -142,14 +143,16 @@ public class EnemyBehaviour : MonoBehaviour
             distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
             if (distanceFromPlayer <= 1.5)
             {
-                //animator.StopPlayback();
-                animator.SetBool("Punching", false);
-                animator.SetBool("Walking", true);
+                animator.SetBool("Walking", false);
                 // animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 Attack(delay);
-
             }
+            else
+            {
+                animator.SetBool("Punching", false);
+            }
+            
 
         }
     }
@@ -157,6 +160,9 @@ public class EnemyBehaviour : MonoBehaviour
     void Attack(float delay)
     {
         animator.SetBool("Walking", false);
+        animator.SetBool("Punching", true);
+
+
         new_delay = delay;
 
 
