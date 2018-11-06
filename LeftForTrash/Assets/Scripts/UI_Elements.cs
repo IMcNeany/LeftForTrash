@@ -31,6 +31,11 @@ public class UI_Elements : MonoBehaviour
     public Image P3HPLoss;
     public Image P4HPLoss;
 
+    public Text TempHP1Text;
+    public Text TempHP2Text;
+    public Text TempHP3Text;
+    public Text TempHP4Text;
+
     public GameObject player1;
     public GameObject player2;
     public GameObject player3;
@@ -77,24 +82,28 @@ public class UI_Elements : MonoBehaviour
             Player1Text.gameObject.SetActive(true);
             Player1HP.gameObject.SetActive(true);
             Player1CD.gameObject.SetActive(true);
+            TempHP1Text.gameObject.SetActive(true);
         }
         if (player2.activeInHierarchy)
         {
             Player2Text.gameObject.SetActive(true);
             Player2HP.gameObject.SetActive(true);
             Player2CD.gameObject.SetActive(true);
+            TempHP2Text.gameObject.SetActive(true);
         }
         if (player3.activeInHierarchy)
         {
             Player3Text.gameObject.SetActive(true);
             Player3HP.gameObject.SetActive(true);
             Player3CD.gameObject.SetActive(true);
+            TempHP3Text.gameObject.SetActive(true);
         }
         if (player4.activeInHierarchy)
         {
             Player4Text.gameObject.SetActive(true);
             Player4HP.gameObject.SetActive(true);
             Player4CD.gameObject.SetActive(true);
+            TempHP4Text.gameObject.SetActive(true);
         }
      
     }
@@ -122,6 +131,11 @@ public class UI_Elements : MonoBehaviour
         Player2Text.text = "Score: " + player2Combat.score;
         Player3Text.text = "Score: " + player3Combat.score;
         Player4Text.text = "Score: " + player4Combat.score;
+
+        TempHP1Text.text = "HP: " + player1Combat.health;
+        TempHP2Text.text = "HP: " + player2Combat.health;
+        TempHP3Text.text = "HP: " + player3Combat.health;
+        TempHP4Text.text = "HP: " + player4Combat.health;
 
         Player1CD.text = "Cooldown: " + Mathf.Round(player1Cooldown.current_cooldown);
         Player2CD.text = "Cooldown: " + Mathf.Round(player2Cooldown.current_cooldown);
