@@ -7,12 +7,15 @@ public class LoadPlayers : MonoBehaviour {
     private GameObject gm;
     private DataPersistance data;
     public GameObject[] players;
+    private GameObject ui_e;
+    bool do_once = false;
 
     // Use this for initialization
     void Start ()
     {
         gm = GameObject.FindGameObjectWithTag("GameController");
         data = gm.GetComponent<DataPersistance>();
+        ui_e = GameObject.Find("UI_Elements");
     }
 	
 	// Update is called once per frame
@@ -40,6 +43,11 @@ public class LoadPlayers : MonoBehaviour {
         {
             players[3].SetActive(true);
            // player_inputs[3] = players[3].GetComponent<InputManager>();
+        }
+        if(!do_once)
+        {
+            ui_e.GetComponent<UI_Elements>().Init();
+            do_once = true;
         }
     }
 }

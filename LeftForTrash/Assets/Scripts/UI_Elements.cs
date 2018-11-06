@@ -63,7 +63,7 @@ public class UI_Elements : MonoBehaviour
     public Text Player3CD;
     public Text Player4CD;
 
-    void Start()
+    public void Init()
     {
         timer = seconds;
 

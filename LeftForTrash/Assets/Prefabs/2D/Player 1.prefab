@@ -354,6 +354,7 @@ MonoBehaviour:
   ranged_aim_pos: {x: 0, y: 0}
   Attack_Collider: {fileID: 1653805583751542}
   ranged: 0
+  deathAudio: {fileID: 0}
 --- !u!114 &114958858847823106
 MonoBehaviour:
   m_ObjectHideFlags: 1

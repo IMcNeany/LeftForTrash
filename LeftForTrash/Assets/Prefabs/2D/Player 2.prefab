@@ -350,12 +350,13 @@ MonoBehaviour:
   healthbar: {fileID: 0}
   max_health: 100
   health: 100
-  score: 1
+  score: 0
   input: {fileID: 114236255795193370}
   player_sprite_offset: {x: 0, y: 0}
   ranged_aim_pos: {x: 0, y: 0}
   Attack_Collider: {fileID: 1430455168485010}
   ranged: 0
+  deathAudio: {fileID: 0}
 --- !u!114 &114088312029006794
 MonoBehaviour:
   m_ObjectHideFlags: 1
