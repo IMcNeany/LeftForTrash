@@ -13,11 +13,12 @@ public class Cutscene : MonoBehaviour
     public GameObject text;
     public GameObject sc;
     private DataPersistance data;
+
     private void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameController");
-        player_count = gm.GetComponent<DataPersistance>().player_count;
         data = gm.GetComponent<DataPersistance>();
+        player_count = data.player_count;
 
         if (data.player1Active == true)
         {
@@ -76,7 +77,7 @@ public class Cutscene : MonoBehaviour
             gameObject.GetComponent<FadeObject>().fadeIn = true;
             gameObject.GetComponent<FadeObject>().start = true;
             text.SetActive(true);
-            StartCoroutine(delay());
+            StartCoroutine(EndScene());
         }
     }
 
@@ -86,7 +87,7 @@ public class Cutscene : MonoBehaviour
         active_p--;
     }
 
-    IEnumerator delay()
+    IEnumerator EndScene()
     {
         yield return new WaitForSeconds(2.5f);
         text.SetActive(false);
