@@ -264,7 +264,7 @@ Prefab:
     - target: {fileID: 114757716487816964, guid: 0637b46e3e398f842b1d5ccd4bc40616,
         type: 2}
       propertyPath: health
-      value: 1
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 114757716487816964, guid: 0637b46e3e398f842b1d5ccd4bc40616,
         type: 2}
@@ -304,6 +304,10 @@ Prefab:
         type: 2}
       propertyPath: m_Size.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714283827878380, guid: 0637b46e3e398f842b1d5ccd4bc40616, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0637b46e3e398f842b1d5ccd4bc40616, type: 2}
