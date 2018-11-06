@@ -21,14 +21,17 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Drop Values")]
 
     int Spawn;
-    public Transform scoreDrop;
-    public Transform speedDrop;
-    public Transform dunnoDrop;
+    private Transform scoreDrop;
+    private Transform speedDrop;
+    private Transform healthDrop;
 
     // Use this for initialization
     void Start()
     {
         animator = GetComponent<Animator>();
+        scoreDrop = GetComponent<Transform>().Find("ScorePickup");
+        speedDrop = GetComponent<Transform>().Find("SpeedPickup");
+        healthDrop = GetComponent<Transform>().Find("HealthPickup");
     }
 
     bool PlayerWithInSight()
@@ -179,11 +182,11 @@ public class EnemyBehaviour : MonoBehaviour
 
     IEnumerator Death()
     {
+        yield return new WaitForSeconds(2.5f);
         animator.SetBool("Punching", false);
         animator.SetBool("Fall", true);
         //animator.Play(animation_clips[1].name);
         follow = false;
-        yield return new WaitForSeconds(2.5f);
         Spawn = Random.Range(0, 5);
         Debug.Log(Spawn);
 
@@ -202,7 +205,7 @@ public class EnemyBehaviour : MonoBehaviour
                 Instantiate(speedDrop, gameObject.transform.position, gameObject.transform.rotation);
                 break;
             case 4:
-                Instantiate(dunnoDrop, gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(healthDrop, gameObject.transform.position, gameObject.transform.rotation);
                 break;
 
         }
