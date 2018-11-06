@@ -22,18 +22,14 @@ public class EnemyBehaviour : MonoBehaviour
     [Header("Drop Values")]
 
     int Spawn;
-    private Transform scoreDrop;
-    private Transform speedDrop;
-    private Transform healthDrop;
+    public GameObject scoreDrop;
+    public GameObject speedDrop;
+    public GameObject healthDrop;
 
     // Use this for initialization
     void Start()
     {
         animator = GetComponent<Animator>();
-        scoreDrop = GetComponent<Transform>().Find("ScorePickup");
-        speedDrop = GetComponent<Transform>().Find("SpeedPickup");
-        healthDrop = GetComponent<Transform>().Find("HealthPickup");
-        firstPos = gameObject.transform.position;
     }
 
     bool PlayerWithInSight()
@@ -54,7 +50,7 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+
         if (enemyHealth <= 0)
         {
             //death
@@ -70,20 +66,20 @@ public class EnemyBehaviour : MonoBehaviour
             if (distanceFromPlayer <= 1.5)
             {
                 animator.SetBool("Walking", false);
-                
+
                 //animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 Attack(delay);
                 if (new_delay > 0.0f)
                 {
                     new_delay -= 1 * Time.deltaTime;
-                    
+
                     Attack_Collider.SetActive(true);
                 }
                 else
                 {
                     Attack_Collider.SetActive(false);
-                  
+
                 }
             }
             else
@@ -154,7 +150,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 animator.SetBool("Punching", false);
             }
-            
+
 
         }
     }
@@ -197,32 +193,29 @@ public class EnemyBehaviour : MonoBehaviour
     IEnumerator Death()
     {
         yield return new WaitForSeconds(2.5f);
+
         animator.SetBool("Punching", false);
         animator.SetBool("Fall", true);
         //animator.Play(animation_clips[1].name);
         follow = false;
-        Spawn = Random.Range(0, 5);
+        Spawn = Random.Range(0, 2);
         Debug.Log(Spawn);
 
         switch (Spawn)
         {
             case 0:
-                Instantiate(scoreDrop, gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(healthDrop.gameObject, gameObject.transform.position, gameObject.transform.rotation);
                 break;
             case 1:
-                Instantiate(scoreDrop, gameObject.transform.position, gameObject.transform.rotation);
+                Instantiate(speedDrop.gameObject, gameObject.transform.position, gameObject.transform.rotation);
                 break;
-            case 2:
-                Instantiate(scoreDrop, gameObject.transform.position, gameObject.transform.rotation);
-                break;
-            case 3:
-                Instantiate(speedDrop, gameObject.transform.position, gameObject.transform.rotation);
-                break;
-            case 4:
-                Instantiate(healthDrop, gameObject.transform.position, gameObject.transform.rotation);
+           
+            default:
+                Instantiate(scoreDrop.gameObject, gameObject.transform.position, gameObject.transform.rotation);
                 break;
 
+
         }
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
