@@ -15,10 +15,12 @@ public class EnemyBehaviour : MonoBehaviour
     Movement followPlayer;
     public float delay;
     public float new_delay;
-    bool follow;
+    bool follow = false;
     public float distanceFromPlayer;
     Vector3 firstPos;
-
+    float time = 5;
+    float timer;
+    bool startTimer;
     [Header("Drop Values")]
 
     int Spawn;
@@ -29,25 +31,12 @@ public class EnemyBehaviour : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        followPlayer = null;
         animator = GetComponent<Animator>();
         firstPos = gameObject.transform.position;
+        timer = animation_clips[0].length;
     }
 
-    bool PlayerWithInSight()
-    {
-        if (playerList.Count > 0)
-        {
-            for (int i = 0; i < playerList.Count; i++)
-            {
-                float angle = Vector3.Angle(playerList[i].GetComponent<Movement>().GetPosition(), gameObject.transform.forward);
-                if (angle < 20.0f)
-                {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
     // Update is called once per frame
     void Update()
     {
@@ -64,24 +53,47 @@ public class EnemyBehaviour : MonoBehaviour
 
             //needs to be within range
             distanceFromPlayer = Vector3.Distance(gameObject.transform.position, followPlayer.GetPosition());
+
             if (distanceFromPlayer <= 1.5)
             {
                 animator.SetBool("Walking", false);
-
+                Debug.Log("dist");
                 //animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
-                Attack(delay);
-                if (new_delay > 0.0f)
+                /*
+                if (new_delay <= 0.0f)
                 {
-                    new_delay -= 1 * Time.deltaTime;
 
-                    Attack_Collider.SetActive(true);
+                    Debug.Log("delay < 0");
+                    Attack_Collider.SetActive(false);
                 }
                 else
                 {
-                    Attack_Collider.SetActive(false);
+                    Debug.Log("delay > 0");
+                    new_delay -= 1 * Time.deltaTime;
+                    Attack_Collider.SetActive(true);
+                    //Attack(delay);
 
+                }*/
+                if(startTimer)
+                {
+                    time -= Time.deltaTime;
+                    Debug.Log(startTimer+ " timer" + time);
                 }
+
+                if(time <= 0.0f)
+                {
+                    Debug.Log("time <0");
+                    Attack_Collider.SetActive(false);
+                    startTimer = false;
+                    Attack(delay);
+                }
+                else
+                {
+                    Debug.Log("time >0");
+                    Attack_Collider.SetActive(true);
+                }
+
             }
             else
             {
@@ -110,7 +122,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             float minDist = Mathf.Infinity;
             int playerNo;
-            Movement followPlayer = playerList[0].GetComponent<Movement>();
+            followPlayer = playerList[0].GetComponent<Movement>();
             //for each player figure out the distance away
             for (int i = 0; i < playerList.Count; i++)
             {
@@ -145,7 +157,10 @@ public class EnemyBehaviour : MonoBehaviour
                 animator.SetBool("Walking", false);
                 // animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
-                Attack(delay);
+                if (!startTimer)
+                {
+                    Attack(delay);
+                }
             }
             else
             {
@@ -160,9 +175,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         animator.SetBool("Walking", false);
         animator.SetBool("Punching", true);
-
-
-        new_delay = delay;
+        time = timer;
+        startTimer = true;
+        Debug.Log("startTimer");
+       // new_delay = delay;
 
 
     }
