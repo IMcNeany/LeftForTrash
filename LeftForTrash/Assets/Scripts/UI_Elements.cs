@@ -120,9 +120,13 @@ public class UI_Elements : MonoBehaviour
     private void HealthBar()
     {
         P1HPLoss.fillAmount = player1Combat.health / player1Combat.max_health;
+        P1HPLoss.GetComponent<RectTransform>().localScale = new Vector3(P1HPLoss.fillAmount, 1, 1);
         P2HPLoss.fillAmount = player2Combat.health / player2Combat.max_health;
+        P2HPLoss.GetComponent<RectTransform>().localScale = new Vector3(P2HPLoss.fillAmount, 1, 1);
         P3HPLoss.fillAmount = player3Combat.health / player3Combat.max_health;
+        P3HPLoss.GetComponent<RectTransform>().localScale = new Vector3(P3HPLoss.fillAmount, 1, 1);
         P4HPLoss.fillAmount = player4Combat.health / player4Combat.max_health;
+        P4HPLoss.GetComponent<RectTransform>().localScale = new Vector3(P4HPLoss.fillAmount, 1, 1);
     }
 
     private void ScoreValue()
