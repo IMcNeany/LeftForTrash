@@ -32,12 +32,10 @@ public class EnemyBehaviour : MonoBehaviour
     {
         followPlayer = null;
         animator = GetComponent<Animator>();
-<<<<<<< HEAD
+
         firstPos = gameObject.transform.position;
         timer = animation_clips[0].length;
-=======
-        firstPos = transform.position;
->>>>>>> origin/master
+
     }
 
     // Update is called once per frame
