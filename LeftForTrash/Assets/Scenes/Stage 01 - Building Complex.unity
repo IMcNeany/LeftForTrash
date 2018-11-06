@@ -273,6 +273,10 @@ MonoBehaviour:
   Player2HP: {fileID: 617942036}
   Player3HP: {fileID: 618393661}
   Player4HP: {fileID: 1207542863}
+  P1HPLoss: {fileID: 503027279}
+  P2HPLoss: {fileID: 1137341048}
+  P3HPLoss: {fileID: 439224003}
+  P4HPLoss: {fileID: 412850627}
   player1: {fileID: 1546903063}
   player2: {fileID: 632259312}
   player3: {fileID: 1463280874}
@@ -1308,7 +1312,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1217632758710108, guid: 080f27e4c905f2c4ea2a531a9ac89511, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 080f27e4c905f2c4ea2a531a9ac89511, type: 2}
@@ -6399,7 +6403,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1799848019447378, guid: 0d62d8ea42343134ab809ff237375415, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114918505050824548, guid: 0d62d8ea42343134ab809ff237375415,
         type: 2}

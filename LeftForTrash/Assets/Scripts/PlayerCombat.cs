@@ -57,7 +57,7 @@ public class PlayerCombat : MonoBehaviour {
 
         if(health<= 0.0f)
         {
-            //player is dead
+            Destroy(this.gameObject);
         }
 
         healthbar.fillAmount = health / max_health;

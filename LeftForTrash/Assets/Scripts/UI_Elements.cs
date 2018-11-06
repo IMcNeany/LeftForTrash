@@ -20,10 +20,16 @@ public class UI_Elements : MonoBehaviour
     private int frameRate;
 
     [Header("Health Values")]
+    //Player Select Bar Amount
     public Image Player1HP;
     public Image Player2HP;
     public Image Player3HP;
     public Image Player4HP;
+    //HP Loss
+    public Image P1HPLoss;
+    public Image P2HPLoss;
+    public Image P3HPLoss;
+    public Image P4HPLoss;
 
     public GameObject player1;
     public GameObject player2;
@@ -52,30 +58,9 @@ public class UI_Elements : MonoBehaviour
     public Text Player3CD;
     public Text Player4CD;
 
-
-    //private GameObject gm;
-
-    //public bool player1Active = false;
-    //private bool player2Active = false;
-    //private bool player3Active = false;
-    //private bool player4Active = false;
-
-    //public int score;
-
     void Start()
     {
-        //gm = GameObject.FindWithTag("GameController");
-        //player1Active = gm.GetComponent<DataPersistance>().player1Active;
-        //player2Active = gm.GetComponent<DataPersistance>().player2Active;
-        //player3Active = gm.GetComponent<DataPersistance>().player3Active;
-        //player4Active = gm.GetComponent<DataPersistance>().player4Active;
-
         timer = seconds;
-
-        //player1 = GameObject.Find("Player 1");
-        //player2 = GameObject.Find("Player 2");
-        //player3 = GameObject.Find("Player 3");
-        //player4 = GameObject.Find("Player 4");
 
         player1Combat = player1.GetComponent<PlayerCombat>();
         player2Combat = player2.GetComponent<PlayerCombat>();
@@ -113,6 +98,23 @@ public class UI_Elements : MonoBehaviour
         }
      
     }
+    
+    void Update()
+    {
+        FPSCounter();
+        ScoreValue();
+        HealthBar();
+        GameTimer();
+        FormatTimer();
+    }
+
+    private void HealthBar()
+    {
+        P1HPLoss.fillAmount = player1Combat.health / player1Combat.max_health;
+        P2HPLoss.fillAmount = player2Combat.health / player2Combat.max_health;
+        P3HPLoss.fillAmount = player3Combat.health / player3Combat.max_health;
+        P4HPLoss.fillAmount = player4Combat.health / player4Combat.max_health;
+    }
 
     private void ScoreValue()
     {
@@ -125,14 +127,6 @@ public class UI_Elements : MonoBehaviour
         Player2CD.text = "Cooldown: " + Mathf.Round(player2Cooldown.current_cooldown);
         Player3CD.text = "Cooldown: " + Mathf.Round(player3Cooldown.current_cooldown);
         Player4CD.text = "Cooldown: " + Mathf.Round(player4Cooldown.current_cooldown);
-    }
-
-    void Update()
-    {
-        FPSCounter();
-        ScoreValue();
-        GameTimer();
-        FormatTimer();
     }
 
     private void GameTimer()
