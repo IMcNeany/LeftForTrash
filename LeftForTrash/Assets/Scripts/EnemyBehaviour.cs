@@ -17,6 +17,7 @@ public class EnemyBehaviour : MonoBehaviour
     float new_delay;
     bool follow;
     public float distanceFromPlayer;
+    Vector3 firstPos;
 
     [Header("Drop Values")]
 
@@ -32,6 +33,7 @@ public class EnemyBehaviour : MonoBehaviour
         scoreDrop = GetComponent<Transform>().Find("ScorePickup");
         speedDrop = GetComponent<Transform>().Find("SpeedPickup");
         healthDrop = GetComponent<Transform>().Find("HealthPickup");
+        firstPos = gameObject.transform.position;
     }
 
     bool PlayerWithInSight()
@@ -176,6 +178,12 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 playerList.RemoveAt(i);
             }
+        }
+        if (playerList.Count == 0)
+        {
+            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, firstPos, 6);
+            follow = false;
+
         }
         animator.SetBool("Idle", true);
         animator.SetBool("walking", false);
