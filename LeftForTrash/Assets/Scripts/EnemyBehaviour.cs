@@ -18,7 +18,13 @@ public class EnemyBehaviour : MonoBehaviour
     bool follow;
     public float distanceFromPlayer;
 
-    public Transform drop;
+    [Header("Drop Values")]
+
+    int Spawn;
+    public Transform scoreDrop;
+    public Transform speedDrop;
+    public Transform dunnoDrop;
+
     // Use this for initialization
     void Start()
     {
@@ -31,8 +37,8 @@ public class EnemyBehaviour : MonoBehaviour
         {
             for (int i = 0; i < playerList.Count; i++)
             {
-               float angle = Vector3.Angle(playerList[i].GetComponent<Movement>().GetPosition(),gameObject.transform.forward);
-                if(angle < 20.0f)
+                float angle = Vector3.Angle(playerList[i].GetComponent<Movement>().GetPosition(), gameObject.transform.forward);
+                if (angle < 20.0f)
                 {
                     return true;
                 }
@@ -44,12 +50,12 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
 
-        if(enemyHealth <= 0)
-        {          
+        if (enemyHealth <= 0)
+        {
             //death
             StartCoroutine(Death());
         }
-        else if(follow)
+        else if (follow)
         {
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
 
@@ -91,7 +97,7 @@ public class EnemyBehaviour : MonoBehaviour
             playerList.Add(other.gameObject);
         }
 
-       
+
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -115,9 +121,9 @@ public class EnemyBehaviour : MonoBehaviour
             }
             //follow closest player
             gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
-            if(followPlayer.GetPosition().x < gameObject.transform.position.x)
+            if (followPlayer.GetPosition().x < gameObject.transform.position.x)
             {
-               
+
                 gameObject.transform.localRotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
             }
             else
@@ -125,7 +131,7 @@ public class EnemyBehaviour : MonoBehaviour
                 gameObject.transform.localRotation = new Quaternion(0.0f, 180.0f, 0.0f, 1.0f);
             }
             follow = true;
-            
+
             animator.SetBool("Walking", true);
             //animator.Play(animation_clips[2].name);
             //needs to be within range
@@ -138,9 +144,9 @@ public class EnemyBehaviour : MonoBehaviour
                 // animator.Play(animation_clips[0].name);
                 delay = animation_clips[0].length;
                 Attack(delay);
-               
+
             }
-            
+
         }
     }
 
@@ -177,7 +183,28 @@ public class EnemyBehaviour : MonoBehaviour
         //animator.Play(animation_clips[1].name);
         follow = false;
         yield return new WaitForSeconds(2.5f);
-        Instantiate(drop, gameObject.transform.position, gameObject.transform.rotation);
+        Spawn = Random.Range(0, 5);
+        Debug.Log(Spawn);
+
+        switch (Spawn)
+        {
+            case 0:
+                Instantiate(scoreDrop, gameObject.transform.position, gameObject.transform.rotation);
+                break;
+            case 1:
+                Instantiate(scoreDrop, gameObject.transform.position, gameObject.transform.rotation);
+                break;
+            case 2:
+                Instantiate(scoreDrop, gameObject.transform.position, gameObject.transform.rotation);
+                break;
+            case 3:
+                Instantiate(speedDrop, gameObject.transform.position, gameObject.transform.rotation);
+                break;
+            case 4:
+                Instantiate(dunnoDrop, gameObject.transform.position, gameObject.transform.rotation);
+                break;
+
+        }
         Destroy(this.gameObject);
     }
 }
