@@ -10,6 +10,7 @@ public class LoadPlayers : MonoBehaviour {
     private GameObject ui_e;
     private GameObject checkpoint;
     bool do_once = false;
+    public CameraController cam;
 
     // Use this for initialization
     void Start ()
@@ -18,6 +19,7 @@ public class LoadPlayers : MonoBehaviour {
         data = gm.GetComponent<DataPersistance>();
         ui_e = GameObject.Find("UI_Elements");
         checkpoint = GameObject.Find("Checkpoint");
+        cam = GameObject.Find("Main Camera").GetComponent<CameraController>();
     }
 	
 	// Update is called once per frame
@@ -50,6 +52,7 @@ public class LoadPlayers : MonoBehaviour {
         {
             ui_e.GetComponent<UI_Elements>().Init();
             checkpoint.GetComponent<Checkpoint>().Init();
+            cam.CameraStuff();
             do_once = true;
         }
     }

@@ -31,6 +31,12 @@ public class CameraController : MonoBehaviour {
     }
     public void Update()
     {
+        
+        UpdateCameraPosition();
+        UpdateCameraSize();
+    }
+    public void CameraStuff()
+    {
         foreach (GameObject players in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (players.activeInHierarchy == true)
@@ -38,10 +44,7 @@ public class CameraController : MonoBehaviour {
                 target_list.Add(players);
             }
         }
-        UpdateCameraPosition();
-        UpdateCameraSize();
     }
-
     public void UpdateCameraPosition()
     {
         Vector3 camera_position = GetTargetPosition();

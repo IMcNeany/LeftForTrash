@@ -136,10 +136,10 @@ public class UI_Elements : MonoBehaviour
         Player3Text.text = "Score: " + player3Combat.score;
         Player4Text.text = "Score: " + player4Combat.score;
 
-        TempHP1Text.text = "HP: " + player1Combat.health;
-        TempHP2Text.text = "HP: " + player2Combat.health;
-        TempHP3Text.text = "HP: " + player3Combat.health;
-        TempHP4Text.text = "HP: " + player4Combat.health;
+        TempHP1Text.text = "P1 HP: " + player1Combat.health;
+        TempHP2Text.text = "P2 HP: " + player2Combat.health;
+        TempHP3Text.text = "P3 HP: " + player3Combat.health;
+        TempHP4Text.text = "p4 HP: " + player4Combat.health;
 
         Player1CD.text = "Cooldown: " + Mathf.Round(player1Cooldown.current_cooldown);
         Player2CD.text = "Cooldown: " + Mathf.Round(player2Cooldown.current_cooldown);
