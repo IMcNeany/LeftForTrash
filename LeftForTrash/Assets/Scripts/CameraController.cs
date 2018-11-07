@@ -26,9 +26,18 @@ public class CameraController : MonoBehaviour {
     {
         camera_component = GetComponent<Camera>();
         camera_scale = camera_component.orthographicSize;
+
+       
     }
     public void Update()
     {
+        foreach (GameObject players in GameObject.FindGameObjectsWithTag("Player"))
+        {
+            if (players.activeInHierarchy == true)
+            {
+                target_list.Add(players);
+            }
+        }
         UpdateCameraPosition();
         UpdateCameraSize();
     }

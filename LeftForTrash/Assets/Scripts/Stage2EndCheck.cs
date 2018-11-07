@@ -6,7 +6,7 @@ public class Stage2EndCheck : MonoBehaviour
 {
     private GameObject gm;
     public int p_count = 0;
-    private bool test = false;
+    private bool test = true;
     private bool end = false;
     private bool p1 = false;
     private bool p2 = false;

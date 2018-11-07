@@ -37,6 +37,7 @@ public class BombAttack : MonoBehaviour {
     {
 		if(col.gameObject.tag == "Player")
         {
+            col.GetComponent<PlayerCombat>().health -= 10;
             Debug.Log("EXPLODE!");
         }
     }
