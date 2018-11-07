@@ -53,10 +53,6 @@ public class Checkpoint : MonoBehaviour
         {
             spawn_pos = triggers[2].transform.position;
         }
-        if (triggers[3].GetComponent<CheckPointTrigger>().hit)
-        {
-            spawn_pos = triggers[3].transform.position;
-        }
 
         for(int i = 0; i < player_max; i++)
         {
