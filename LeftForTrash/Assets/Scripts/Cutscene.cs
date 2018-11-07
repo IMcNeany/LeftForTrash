@@ -11,6 +11,7 @@ public class Cutscene : MonoBehaviour
     public InputManager[] player_inputs;
     private int active_p;
     public GameObject text;
+    public GameObject objective_text;
     public GameObject sc;
     private DataPersistance data;
 
@@ -89,6 +90,7 @@ public class Cutscene : MonoBehaviour
 
     IEnumerator EndScene()
     {
+        objective_text.SetActive(false);
         yield return new WaitForSeconds(2.5f);
         text.SetActive(false);
         sc.GetComponent<SceneController>().NextScene();
