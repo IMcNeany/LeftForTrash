@@ -137,8 +137,12 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
             //follow closest player
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
-            if (followPlayer.GetPosition().x < gameObject.transform.position.x)
+            if (enemyHealth > 0)
+            {
+                gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, followPlayer.GetPosition(), speed * Time.deltaTime);
+            }
+
+            if (followPlayer.GetPosition().x < gameObject.transform.position.x )
             {
 
                 gameObject.transform.localRotation = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
