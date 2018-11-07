@@ -30,7 +30,7 @@ public class SceneController : MonoBehaviour
 
     public void MenuScene()
     {
-        ResetPassingData();
+       ResetPassingData();
         SceneManager.LoadScene(0);
     }
 }
