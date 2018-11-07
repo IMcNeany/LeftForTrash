@@ -19,7 +19,7 @@ public class AttackPlayer : MonoBehaviour {
         if(other.gameObject.tag == "Player")
         {
           PlayerCombat player =  other.gameObject.GetComponent<PlayerCombat>();
-            player.health -= 10;
+            player.health -= 2;
 
         }
     }
