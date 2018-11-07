@@ -33,4 +33,9 @@ public class SceneController : MonoBehaviour
        ResetPassingData();
         SceneManager.LoadScene(0);
     }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene(8);
+    }
 }
