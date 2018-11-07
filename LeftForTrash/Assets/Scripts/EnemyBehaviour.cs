@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBehaviour : MonoBehaviour
 {
 
-    float speed = 0.3f;
+    float speed = 0.05f;
     public List<GameObject> playerList;
     public GameObject Attack_Collider;
     public float enemyHealth = 100;
