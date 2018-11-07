@@ -222,13 +222,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerList: []
   Attack_Collider: {fileID: 1350529608716350}
-  enemyHealth: 100
-  prefab: {fileID: 0}
+  enemyHealth: 20
   animation_clips:
   - {fileID: 7400000, guid: f981bdc83f7857e468c0d0411010787d, type: 2}
   - {fileID: 7400000, guid: 6835811dadf8f164c8488d2f123eaf8d, type: 2}
+  delay: 0
+  new_delay: 0
   distanceFromPlayer: 0
-  firstPos: {x: 0, y: 0, z: 0}
   scoreDrop: {fileID: 1875959556981124, guid: 2027c6d290141d245bb66b60fd9240c1, type: 2}
   speedDrop: {fileID: 1444858811134834, guid: 5906bc60a7757ea47a4d58e4e3615c2d, type: 2}
   healthDrop: {fileID: 1764480168695770, guid: 88732f1969fef1c499d46af5ea52bb3f, type: 2}
