@@ -8,6 +8,7 @@ public class LoadPlayers : MonoBehaviour {
     private DataPersistance data;
     public GameObject[] players;
     private GameObject ui_e;
+    private GameObject checkpoint;
     bool do_once = false;
 
     // Use this for initialization
@@ -16,6 +17,7 @@ public class LoadPlayers : MonoBehaviour {
         gm = GameObject.FindGameObjectWithTag("GameController");
         data = gm.GetComponent<DataPersistance>();
         ui_e = GameObject.Find("UI_Elements");
+        checkpoint = GameObject.Find("Checkpoint");
     }
 	
 	// Update is called once per frame
@@ -47,6 +49,7 @@ public class LoadPlayers : MonoBehaviour {
         if(!do_once)
         {
             ui_e.GetComponent<UI_Elements>().Init();
+            checkpoint.GetComponent<Checkpoint>().Init();
             do_once = true;
         }
     }
