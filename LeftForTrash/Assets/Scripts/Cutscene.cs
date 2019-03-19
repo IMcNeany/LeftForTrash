@@ -23,24 +23,28 @@ public class Cutscene : MonoBehaviour
 
         if (data.player1Active == true)
         {
+            players[0].GetComponent<Movement>().in_cutscene = true;
             players[0].SetActive(true);
             player_inputs[0] = players[0].GetComponent<InputManager>();
         }
 
         if (data.player2Active == true)
         {
+            players[1].GetComponent<Movement>().in_cutscene = true;
             players[1].SetActive(true);
             player_inputs[1] = players[1].GetComponent<InputManager>();
         }
 
         if (data.player3Active == true)
         {
+            players[2].GetComponent<Movement>().in_cutscene = true;
             players[2].SetActive(true);
             player_inputs[2] = players[2].GetComponent<InputManager>();
         }
 
         if (data.player4Active == true)
         {
+            players[3].GetComponent<Movement>().in_cutscene = true;
             players[3].SetActive(true);
             player_inputs[3] = players[3].GetComponent<InputManager>();
         }
@@ -57,18 +61,22 @@ public class Cutscene : MonoBehaviour
     {
         if (data.player1Active == true)
         {
+            player_inputs[0].cutscene_override = true;
             player_inputs[0].setHorizontal(1);
         }
         if (data.player2Active == true)
         {
+            player_inputs[1].cutscene_override = true;
             player_inputs[1].setHorizontal(1);
         }
         if (data.player3Active == true)
         {
+            player_inputs[2].cutscene_override = true;
             player_inputs[2].setHorizontal(1);
         }
         if (data.player4Active == true)
         {
+            player_inputs[3].cutscene_override = true;
             player_inputs[3].setHorizontal(1);
         }
 
@@ -93,6 +101,38 @@ public class Cutscene : MonoBehaviour
         objective_text.SetActive(false);
         yield return new WaitForSeconds(2.5f);
         text.SetActive(false);
+        if (data.player1Active == true)
+        {
+            players[0].GetComponent<Movement>().in_cutscene = false;
+            if (player_inputs[0])
+            {
+                player_inputs[0].cutscene_override = false;
+            }
+        }
+        if (data.player1Active == true)
+        {
+            players[1].GetComponent<Movement>().in_cutscene = false;
+            if (player_inputs[1])
+            {
+                player_inputs[1].cutscene_override = false;
+            }
+        }
+        if (data.player1Active == true)
+        {
+            players[2].GetComponent<Movement>().in_cutscene = false;
+            if (player_inputs[2])
+            {
+                player_inputs[2].cutscene_override = false;
+            }
+        }
+        if (data.player1Active == true)
+        {
+            players[3].GetComponent<Movement>().in_cutscene = false;
+            if (player_inputs[3])
+            {
+                player_inputs[3].cutscene_override = false;
+            }
+        }
         sc.GetComponent<SceneController>().NextScene();
     }
 }

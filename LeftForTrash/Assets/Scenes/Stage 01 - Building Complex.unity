@@ -11440,6 +11440,7 @@ MonoBehaviour:
   - {fileID: 1691456566}
   - {fileID: 2051279832}
   - {fileID: 923064797}
+  check: 00000000
   players:
   - {fileID: 1546903063}
   - {fileID: 632259312}
@@ -14171,6 +14172,7 @@ MonoBehaviour:
   - {fileID: 632259312}
   - {fileID: 1463280874}
   - {fileID: 1132691938}
+  cam: {fileID: 0}
 --- !u!4 &1351510669
 Transform:
   m_ObjectHideFlags: 0
