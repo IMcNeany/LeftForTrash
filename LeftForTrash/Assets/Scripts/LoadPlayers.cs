@@ -52,7 +52,6 @@ public class LoadPlayers : MonoBehaviour {
         {
             ui_e.GetComponent<UI_Elements>().Init();
             checkpoint.GetComponent<Checkpoint>().Init();
-            cam.CameraStuff();
             do_once = true;
         }
     }

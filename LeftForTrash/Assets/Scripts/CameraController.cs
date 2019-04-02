@@ -32,15 +32,16 @@ public class CameraController : MonoBehaviour {
     {     
         UpdateCameraPosition();
         UpdateCameraSize();
+        AddPlayers();
     }
 
-    public void CameraStuff()
+    public void AddPlayers()
     {
-        foreach (GameObject players in GameObject.FindGameObjectsWithTag("Player"))
+        foreach (GameObject player in GameObject.FindGameObjectsWithTag("Player"))
         {
-            if (players.activeInHierarchy == true)
+            if (player.activeInHierarchy && !target_list.Contains(player))
             {
-                target_list.Add(players);
+                target_list.Add(player);
             }
         }
     }
