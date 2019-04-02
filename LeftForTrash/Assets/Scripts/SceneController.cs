@@ -36,6 +36,6 @@ public class SceneController : MonoBehaviour
 
     public void GameOver()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(6);
     }
 }

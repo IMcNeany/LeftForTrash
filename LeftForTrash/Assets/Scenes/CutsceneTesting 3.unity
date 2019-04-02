@@ -1580,7 +1580,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Stage 3 \n- JCB Boss Fight -"
+  m_Text: "Stage 2 \n- JCB Boss Fight -"
 --- !u!222 &1939941982
 CanvasRenderer:
   m_ObjectHideFlags: 0

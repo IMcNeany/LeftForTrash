@@ -5,24 +5,30 @@ using UnityEngine;
 public class gameOver : MonoBehaviour {
 
     public List <GameObject> player;
+    public SceneController sc;
     private bool gameOverset;
-    private bool isPlayersAlive;
+    private bool isPlayersAlive = false;
         // Use this for initialization
 
     void Start ()
     {
-		foreach (GameObject players in GameObject.FindGameObjectsWithTag("Player"))
+        Invoke("FindPlayers", 0.5f);
+	}
+    void FindPlayers()
+    {
+        foreach (GameObject players in GameObject.FindGameObjectsWithTag("Player"))
         {
             if (players.activeInHierarchy == true)
             {
                 player.Add(players);
             }
         }
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        float deadPlayers = 0;
 		for (int i = 0; i < player.Count; i++)
         {
        
@@ -30,21 +36,20 @@ public class gameOver : MonoBehaviour {
             {
                     isPlayersAlive = true;
             }
-        }
-
-        for (int i = 0; i < player.Count; i++)
-        {
-
             if (player[i].GetComponent<PlayerCombat>().health <= 0)
             {
-                if (isPlayersAlive == true)
-                {
-                    gameOverset = false;
-                }
-                else
-                {
-                    gameOverset = true;
-                }
+                isPlayersAlive = false;
+                deadPlayers++;
+
+            }
+
+            if (isPlayersAlive == true)
+            {
+                gameOverset = false;
+            }
+            else if(deadPlayers == player.Count)
+            {
+                gameOverset = true;
             }
         }
 
@@ -57,7 +62,7 @@ public class gameOver : MonoBehaviour {
 
     void endGame()
     {
-        SceneController sc = gameObject.GetComponent<SceneController>();
+       sc = FindObjectOfType<SceneController>();
         sc.GameOver();
     }
 }
