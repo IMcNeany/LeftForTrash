@@ -25,16 +25,15 @@ public class CameraController : MonoBehaviour {
     public void Start()
     {
         camera_component = GetComponent<Camera>();
-        camera_scale = camera_component.orthographicSize;
-
-       
+        camera_scale = camera_component.orthographicSize;      
     }
+
     public void Update()
-    {
-        
+    {     
         UpdateCameraPosition();
         UpdateCameraSize();
     }
+
     public void CameraStuff()
     {
         foreach (GameObject players in GameObject.FindGameObjectsWithTag("Player"))
@@ -45,6 +44,7 @@ public class CameraController : MonoBehaviour {
             }
         }
     }
+
     public void UpdateCameraPosition()
     {
         Vector3 camera_position = GetTargetPosition();
@@ -93,6 +93,7 @@ public class CameraController : MonoBehaviour {
                 }
             }
         }
+
         if (shrink)
         {
             max_distance = shrink_distance;

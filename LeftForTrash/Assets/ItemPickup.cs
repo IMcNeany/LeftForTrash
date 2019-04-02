@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemPickup : MonoBehaviour {
 
@@ -14,10 +15,12 @@ public class ItemPickup : MonoBehaviour {
     public bool triggerable;
     public ItemType type;
     public GameObject pickupAudioObject;
+    public Sprite[] sprites;
 
 	// Use this for initialization
 	void Start () {
-		
+        int random = Random.Range(0, sprites.Length);
+        GetComponent<SpriteRenderer>().sprite = sprites[random];
 	}
 	
 	// Update is called once per frame
@@ -33,7 +36,7 @@ public class ItemPickup : MonoBehaviour {
             {
                 UseItem(collision.gameObject);
                 GameObject audio_pickup = Instantiate(pickupAudioObject) as GameObject;
-                Destroy(gameObject);
+                StartCoroutine(DelayDespawn());
             }
         }
     }
@@ -52,7 +55,14 @@ public class ItemPickup : MonoBehaviour {
                 player.GetComponent<PlayerCombat>().score += 100;
                 break;
         }
-
     }
 
+    IEnumerator DelayDespawn()
+    {
+        GetComponent<BoxCollider2D>().enabled = false;
+        transform.GetChild(0).transform.GetChild(0).GetComponent<Text>().enabled = true;
+        GetComponent<SpriteRenderer>().enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
+    }
 }

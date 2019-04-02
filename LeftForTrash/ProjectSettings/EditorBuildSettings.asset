@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage 01 - Building Complex.unity
     guid: afacec1f0c942e04983b29178a04ac40
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CutsceneTesting 2.unity
     guid: 19c308f44aaf94344a0f46917580187c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Stage 02 - Shopping Center.unity
     guid: 2631124525408ee4389e2554c9de9629
   - enabled: 1

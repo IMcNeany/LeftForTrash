@@ -28,7 +28,7 @@ public class EnemyCollision : MonoBehaviour {
                     EB.TakeDamage(damage);
                 }
 
-                if (boss)
+                if (boss && boss.health > 1)
                 {
                     boss.hit(damage);
                 }

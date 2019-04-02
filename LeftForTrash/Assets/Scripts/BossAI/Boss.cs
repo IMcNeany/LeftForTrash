@@ -40,9 +40,10 @@ public class Boss : MonoBehaviour {
         }
 	}
 
-	public void hit(float damage){
-	
-
-		health -= damage;
+	public void hit(float damage) {
+        if(health > 1)
+        {
+		    health -= damage;
+        }
 	}
 }
