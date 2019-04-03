@@ -141,10 +141,10 @@ public class UI_Elements : MonoBehaviour
         TempHP3Text.text = "P3 HP: " + player3Combat.health;
         TempHP4Text.text = "p4 HP: " + player4Combat.health;
 
-        Player1CD.text = "Cooldown: " + Mathf.Round(player1Cooldown.current_cooldown);
-        Player2CD.text = "Cooldown: " + Mathf.Round(player2Cooldown.current_cooldown);
-        Player3CD.text = "Cooldown: " + Mathf.Round(player3Cooldown.current_cooldown);
-        Player4CD.text = "Cooldown: " + Mathf.Round(player4Cooldown.current_cooldown);
+        //Player1CD.text = "Cooldown: " + Mathf.Round(player1Cooldown.current_cooldown);
+        //Player2CD.text = "Cooldown: " + Mathf.Round(player2Cooldown.current_cooldown);
+        //Player3CD.text = "Cooldown: " + Mathf.Round(player3Cooldown.current_cooldown);
+        //Player4CD.text = "Cooldown: " + Mathf.Round(player4Cooldown.current_cooldown);
     }
 
     private void GameTimer()

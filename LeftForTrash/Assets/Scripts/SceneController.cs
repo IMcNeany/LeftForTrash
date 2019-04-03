@@ -31,6 +31,8 @@ public class SceneController : MonoBehaviour
     public void MenuScene()
     {
        ResetPassingData();
+        //delete previous lobby settings
+        Destroy(GameObject.Find("GM"));
         SceneManager.LoadScene(0);
     }
 

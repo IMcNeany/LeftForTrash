@@ -95,7 +95,7 @@ public class PlayerCombat : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Enemy")
         {
-           // health -= 20;
+           //health -= 20;
         }
     }
 
