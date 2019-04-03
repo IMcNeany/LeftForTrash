@@ -34,3 +34,17 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+LeftForTrash/Left4Trash/LeftForTrash_Data/
+
+LeftForTrash/Left4Trash/Mono/etc/mono/1\.0/
+
+LeftForTrash/Left4Trash/Mono/etc/mono/2\.0/
+
+LeftForTrash/Left4Trash/Mono/etc/mono/
+
+LeftForTrash/Left4Trash/Mono/EmbedRuntime/
+
+LeftForTrash/Left4Trash/
+
+LeftForTrash/Assets/Sprites/
