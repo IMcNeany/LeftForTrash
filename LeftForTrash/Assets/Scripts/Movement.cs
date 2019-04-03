@@ -23,6 +23,7 @@ public class Movement : MonoBehaviour {
     public float current_buff_time = 0.0f;
     public AudioSource audio_source;
     public List<AudioClip> audio_clips;
+    public bool in_cutscene = false;
 
     // Use this for initialization
     void Start () {
@@ -47,85 +48,109 @@ public class Movement : MonoBehaviour {
 
     void UpdateMovement()
     {
-        if (P2S)
+        if (!in_cutscene)
         {
-            animator.SetFloat("Delay", P2S.current_spintime);
-        }
-        
-        if (delay <= 0.0f)
-        {
-            movement = new Vector2(input.getHorizontal() * current_speed, input.getVertical() * current_speed);
-
-            if (input.getTrigger() < -0.2f)
-            {
-                animator.Play(animation_clips[0].name);
-                delay = animation_clips[0].length;
-                combat.Attack(delay);
-                audio_source.clip = audio_clips[0];
-                audio_source.Play();
-            }
-            if (input.getTrigger() > 0.2f)
-            {
-                if (special.current_cooldown <= 0.0f)
-                {
-                    animator.Play(animation_clips[1].name);
-                    
-                    if(special.override_delay)
-                    {
-                        delay = P2S.spin_time;
-                        audio_source.loop = true;
-                    }
-                    else
-                    {
-                        delay = animation_clips[1].length;
-                    }
-                    special.UseSpecialAttack();
-                    audio_source.clip = audio_clips[1];
-                    audio_source.Play();
-                }
-            }
-        }
-        else
-        {
-            movement = Vector2.zero;
-            delay -= 1 * Time.deltaTime;
-        }
-        if (P2S)
-        {
-            if (move_during_special && animator.GetFloat("Delay") > 0.0f)
+            if (delay <= 0.0f)
             {
                 movement = new Vector2(input.getHorizontal() * current_speed, input.getVertical() * current_speed);
+
+                if (input.getTrigger() < -0.2f)
+                {
+                    animator.Play(animation_clips[0].name);
+                    delay = animation_clips[0].length;
+                    combat.Attack(delay);
+                    audio_source.clip = audio_clips[0];
+                    audio_source.Play();
+                }
+                if (input.getTrigger() > 0.2f)
+                {
+                    if (special.current_cooldown <= 0.0f)
+                    {
+                        animator.Play(animation_clips[1].name);
+
+                        if (special.override_delay)
+                        {
+                            delay = P2S.spin_time;
+                            audio_source.loop = true;
+                        }
+                        else
+                        {
+                            delay = animation_clips[1].length;
+                        }
+                        special.UseSpecialAttack();
+                        audio_source.clip = audio_clips[1];
+                        audio_source.Play();
+                    }
+                }
             }
-        }
-        if (movement != Vector2.zero)
-        {
-            if (movement.x > 0)
+            else
             {
-                Vector3 scale = transform.localScale;
-                scale.x = sprite_direction;
-                transform.transform.localScale = scale;
+                movement = Vector2.zero;
+                delay -= 1 * Time.deltaTime;
             }
-            else if (movement.x < 0)
+            if (P2S)
             {
-                Vector3 scale = transform.localScale;
-                scale.x = -sprite_direction;
-                transform.transform.localScale = scale;
+                animator.SetFloat("Delay", P2S.current_spintime);
+                if (move_during_special && animator.GetFloat("Delay") > 0.0f)
+                {
+                    movement = new Vector2(input.getHorizontal() * current_speed, input.getVertical() * current_speed);
+                }
+            }
+            if (movement != Vector2.zero)
+            {
+                if (movement.x > 0)
+                {
+                    Vector3 scale = transform.localScale;
+                    scale.x = sprite_direction;
+                    transform.transform.localScale = scale;
+                }
+                else if (movement.x < 0)
+                {
+                    Vector3 scale = transform.localScale;
+                    scale.x = -sprite_direction;
+                    transform.transform.localScale = scale;
+                }
+
+                animator.SetBool("Moving", true);
+            }
+            else
+            {
+                animator.SetBool("Moving", false);
             }
 
-            animator.SetBool("Moving", true);
+            if (current_buff_time < 0.0f)
+            {
+                current_speed = base_speed;
+            }
+            else
+            {
+                current_buff_time -= 1 * Time.deltaTime;
+            }
         }
         else
         {
-            animator.SetBool("Moving", false);
-        }
+            if (movement != Vector2.zero)
+            {
+                if (movement.x > 0)
+                {
+                    Vector3 scale = transform.localScale;
+                    scale.x = sprite_direction;
+                    transform.transform.localScale = scale;
+                }
+                else if (movement.x < 0)
+                {
+                    Vector3 scale = transform.localScale;
+                    scale.x = -sprite_direction;
+                    transform.transform.localScale = scale;
+                }
 
-        if(current_buff_time < 0.0f)
-        {
-            current_speed = base_speed;
-        }
-        else
-        {
-            current_buff_time -= 1 * Time.deltaTime;
+                animator.SetBool("Moving", true);
+            }
+            else
+            {
+                animator.SetBool("Moving", false);
+            }
+            movement = new Vector2(input.getHorizontal() * current_speed, input.getVertical() * current_speed);
         }
     }
 

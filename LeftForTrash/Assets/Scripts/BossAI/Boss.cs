@@ -32,7 +32,10 @@ public class Boss : MonoBehaviour {
 
 	protected void update(){
 		float ratio = health/maxHealth;
-		healthbar.GetComponent<RectTransform>().localScale = new Vector3(ratio, 1, 1);
+        if (healthbar)
+        {
+            healthbar.GetComponent<RectTransform>().localScale = new Vector3(ratio, 1, 1);
+        }
 
         if(ratio <= 0)
         {

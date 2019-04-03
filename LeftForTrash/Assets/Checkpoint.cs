@@ -5,7 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     public GameObject[] triggers;
-    bool[] check;
+    public bool[] check;
     private GameObject gm;
     private int player_max;
     Vector3 spawn_pos = new Vector3(0,0,0);

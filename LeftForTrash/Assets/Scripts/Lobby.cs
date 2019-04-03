@@ -72,12 +72,18 @@ public class Lobby : MonoBehaviour {
 
         if (playerCount >= 1)
         {
-            startText.gameObject.SetActive(true);
+           if(startText)
+            {
+                startText.gameObject.SetActive(true);
+            }
 
             if (Input.GetButton("A_1") || Input.GetButton("A_2") || 
                 Input.GetButton("A_3") || Input.GetButton("A_4"))
             {
-                startText.gameObject.SetActive(false);
+                if(startText)
+                {
+                    startText.gameObject.SetActive(false);
+                }
                 scene.NextScene();
             }
         }
